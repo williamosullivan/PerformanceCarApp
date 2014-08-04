@@ -6,8 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using GCFinalProject.DAL;
-using GCFinalProject.Models;
+using PerformanceCarApp.DAL;
+using PerformanceCarApp.Models;
 
 namespace PerformanceCarApp.Controllers
 {

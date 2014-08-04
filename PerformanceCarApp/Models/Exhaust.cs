@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
-namespace GCFinalProject.Models
+namespace PerformanceCarApp.Models
 {
     public class Exhaust
     {

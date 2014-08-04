@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using GCFinalProject.Models;
+using PerformanceCarApp.Models;
 
-namespace GCFinalProject.DAL
+namespace PerformanceCarApp.DAL
 {
     public class CarContext : DbContext
     {

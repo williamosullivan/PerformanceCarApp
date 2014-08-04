@@ -1,10 +1,10 @@
-﻿using GCFinalProject.Models;
+﻿using PerformanceCarApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GCFinalProject.DAL
+namespace PerformanceCarApp.DAL
 {
     public class CarInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<CarContext>
     {
