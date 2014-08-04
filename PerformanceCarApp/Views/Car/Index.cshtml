@@ -35,41 +35,42 @@
         <th>
             @Html.DisplayNameFor(model => model.Trim)
         </th>
-        
+
     </tr>
 
-@foreach (var item in Model.C
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Make)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Generation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Drivetrain)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BodyStyle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BaseHorsepower)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EngineSize)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trim)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CarID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CarID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CarID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Generation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Drivetrain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BodyStyle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaseHorsepower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trim)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CarID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CarID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CarID })
+            </td>
+        </tr>
+    }
 
 </table>
