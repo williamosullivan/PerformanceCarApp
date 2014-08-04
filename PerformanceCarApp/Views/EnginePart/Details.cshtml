@@ -1,0 +1,42 @@
+﻿@model GCFinalProject.Models.EnginePart
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EnginePart</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PartID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnginePartHPGain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnginePartHPGain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnginePartName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnginePartName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EnginePartID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

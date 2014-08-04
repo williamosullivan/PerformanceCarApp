@@ -1,0 +1,50 @@
+﻿@model GCFinalProject.Models.Suspension
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Suspension</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PartID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspensionDrop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspensionDrop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspensionWeightSave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspensionWeightSave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspensionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspensionName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SuspensionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

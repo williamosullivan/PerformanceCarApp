@@ -1,0 +1,56 @@
+﻿@model GCFinalProject.Models.Suspension
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Suspension</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PartID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspensionDrop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspensionDrop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspensionWeightSave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspensionWeightSave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspensionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspensionName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,42 @@
+﻿@model GCFinalProject.Models.Brakes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Brakes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PartID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrakeWeightSave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrakeWeightSave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrakeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrakeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BrakeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

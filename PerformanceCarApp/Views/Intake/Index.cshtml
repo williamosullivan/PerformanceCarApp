@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GCFinalProject.Models.Intake>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PartID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IntakeHPGain)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IntakeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntakeHPGain)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntakeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IntakeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IntakeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IntakeID })
+        </td>
+    </tr>
+}
+
+</table>
