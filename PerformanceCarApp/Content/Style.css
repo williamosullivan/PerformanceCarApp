@@ -1,3 +1,16 @@
 ﻿body {
     background-image: url(../Content/background.jpg);
+    color: #567450;
+    background-color: rgba(0, 0, 0, 0.00);
+}
+.navbar {
+    color: #00ff21;
+    background-color: rgba(0, 0, 0, 0.00);
+    float: left;
+    width: 10%;
+    height: 100%;
+    font-size: large;
+    padding-top: 10%;
+    background-image: url(../Content/flag.jpg);
+    background-repeat: repeat-y;
 }
