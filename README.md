@@ -7,3 +7,6 @@ Inital Design done.
 Using code first design.
 Database intialized.
 Working on database population, first migration having entity type errors, and search and sort parms.
+
+
+https://trello.com/b/l97cCZdr/final-project
