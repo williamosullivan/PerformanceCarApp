@@ -98,13 +98,16 @@ namespace PerformanceCarApp.Migrations
             var exhausts = new List<Exhaust>
             {
                 new Exhaust{PartID=1, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback" },
-                new Exhaust{PartID=1, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback" },
                 new Exhaust{PartID=2, ExhaustHPGain = 20, ExhaustName = "2 in. Flowmaster Full Dual" },
                 new Exhaust{PartID=3, ExhaustHPGain = 30, ExhaustName = "3 in. Flowmaster Full Dual" },
                 new Exhaust{PartID=4, ExhaustHPGain = 20, ExhaustName = "2 in. Borla Full Dual" },
                 new Exhaust{PartID=5, ExhaustHPGain = 30, ExhaustName = "3 in. Borla Full Dual" },
                 new Exhaust{PartID=6, ExhaustHPGain = 20, ExhaustName = "2 in. Walker Full Dual" },
-                new Exhaust{PartID=7, ExhaustHPGain = 30, ExhaustName = "3 in. Walker Full Dual" }
+                new Exhaust{PartID=7, ExhaustHPGain = 30, ExhaustName = "3 in. Walker Full Dual" },
+                new Exhaust{PartID=8, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback" },
+                new Exhaust{PartID=9, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback" },
+                new Exhaust{PartID=10, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback" },
+                new Exhaust{PartID=11, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback" }
             };
             exhausts.ForEach(s => context.Exhausts.AddOrUpdate(p => p.ExhaustName, s));
             context.SaveChanges();
