@@ -16,8 +16,21 @@ namespace PerformanceCarApp.Controllers
         private CarContext db = new CarContext();
 
         // GET: Exhaust
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            var exhausts = from e in db.Exhausts select e;
+
+            switch(sortOrder)
+            {
+                case "name_desc":
+                    exhausts = exhausts.OrderByDescending(e => e.ExhaustName);
+                    break;
+
+                default:
+                    exhausts = exhausts.OrderBy(e => e.ExhaustName);
+                    break;
+            }
             return View(db.Exhausts.ToList());
         }
 
