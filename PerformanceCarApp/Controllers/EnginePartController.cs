@@ -32,7 +32,7 @@ namespace PerformanceCarApp.Controllers
                     break;
 
             }
-            return View(db.EngineParts.ToList());
+            return View(parts.ToList());
         }
 
         // GET: EnginePart/Details/5
