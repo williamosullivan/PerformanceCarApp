@@ -9,10 +9,10 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PartType)
+            @Html.ActionLink("PartType", "Index", new { sortOrder=ViewBag.NameSortParm})
         </th>
         <th></th>
     </tr>
