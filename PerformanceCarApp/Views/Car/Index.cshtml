@@ -5,20 +5,36 @@
 }
 <link rel="stylesheet" type="text/css" href="~/Content/style.css">
 <h2>Car Index</h2>
-
+<form action="">
+    <select name="Car">
+        <optgroup label="VolksWagon">
+            
+            <option value="Golf">Golf R</option>
+        </optgroup>
+        
+        <optgroup label="Chevrolet">
+            <option value="Camero">Camero</option>
+            <option value="Corvette">Corvette</option>
+            <option value="Imapala">Impala</option>
+        </optgroup>
+        <optgroup label="Ford">
+            <option value="Fusion">Fusion</option>
+            <option value="Focus">Focus</option>
+            <option value="Mustang">Mustang</option>
+        </optgroup>
+        <optgroup label="Dodge">
+            <option value="Challenger">Challenger</option>
+            <option value="Charger">Charger</option>
+        </optgroup>
+        <optgroup label="GMC">
+            <option value="Typhoon">Typhoon</option>
+        </optgroup>
+    </select>
+</form>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<form action="">
-    <select name="Car">
-        <option value="Volvo">Volvo</option>
-        <option value="VW">VolksWagon</option>
-        <option value="Chevrolet">Chevrolet</option>
-        <option value="Ford">Ford</option>
-        <option value="Dodge">Dodge</option>
-        <option value="GMC">GMC</option>
-    </select>
-</form>
+
 <table>
     <tr>
         <th>
