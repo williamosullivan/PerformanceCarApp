@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.PartType)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new {id=item.PartID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PartID}) |
+            @Html.ActionLink("Delete", "Delete", new {id=item.PartID})
         </td>
     </tr>
 }
