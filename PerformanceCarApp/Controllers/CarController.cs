@@ -19,7 +19,7 @@ namespace PerformanceCarApp.Controllers
         public ActionResult Index(string sortOrder)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.NameSortParm = sortOrder == "Make" ? "model_desc" :"Make";
+            ViewBag.MakeSortParm = sortOrder == "Make" ? "make_desc" :"Make";
             var cars = from c in db.Cars select c;
 
             switch(sortOrder)
@@ -30,11 +30,14 @@ namespace PerformanceCarApp.Controllers
                 case "Make":
                     cars = cars.OrderBy(c => c.Make);
                     break;
+                case "make_desc":
+                    cars = cars.OrderByDescending(c => c.Make);
+                    break;
                 default:
                     cars = cars.OrderBy(c => c.Model);
                     break;
             }
-            return View(db.Cars.ToList());
+            return View(cars.ToList());
         }
 
         // GET: Car/Details/5
