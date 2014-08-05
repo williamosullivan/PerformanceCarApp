@@ -32,7 +32,7 @@ namespace PerformanceCarApp.Controllers
                     break;
             }
 
-            return View(db.Suspensions.ToList());
+            return View(suspension.ToList());
         }
 
         // GET: Suspension/Details/5

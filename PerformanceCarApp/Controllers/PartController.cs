@@ -16,9 +16,21 @@ namespace PerformanceCarApp.Controllers
         private CarContext db = new CarContext();
 
         // GET: Part
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Parts.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            var parts = from pt in db.Parts select pt;
+
+            switch(sortOrder)
+            {
+                case "name_desc":
+                    parts = parts.OrderByDescending(pt => pt.PartType);
+                    break;
+                default:
+                    parts = parts.OrderBy(pt => pt.PartType);
+                    break;
+            }
+            return View(parts.ToList());
         }
 
         // GET: Part/Details/5

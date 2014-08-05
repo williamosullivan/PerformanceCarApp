@@ -31,7 +31,7 @@ namespace PerformanceCarApp.Controllers
                     exhausts = exhausts.OrderBy(e => e.ExhaustName);
                     break;
             }
-            return View(db.Exhausts.ToList());
+            return View(exhausts.ToList());
         }
 
         // GET: Exhaust/Details/5
