@@ -31,7 +31,7 @@ namespace PerformanceCarApp.Migrations
                 new Car{CarID = 11, Make ="Dodge", Model="Challenger", BaseHorsepower= 300, BodyStyle="2 dr. Coupe", Drivetrain="RWD", EngineSize="V8", Generation="2012", Trim = "RT" }
 
             };
-            cars.ForEach(s => context.Cars.AddOrUpdate(p => p.Model, s));
+            cars.ForEach(s => context.Cars.AddOrUpdate(p => p.CarID, s));
             context.SaveChanges();
 
             var parts = new List<Part>
@@ -92,7 +92,7 @@ namespace PerformanceCarApp.Migrations
                 new Part{PartID = 54, PartType = "Suspension", CarID = 10},
                 new Part{PartID = 55, PartType = "Suspension", CarID = 11}
             };
-            parts.ForEach(s => context.Parts.AddOrUpdate(p => p.PartType, s));
+            parts.ForEach(s => context.Parts.AddOrUpdate(p => p.PartID, s));
             context.SaveChanges();
 
             var exhausts = new List<Exhaust>
@@ -109,7 +109,7 @@ namespace PerformanceCarApp.Migrations
                 new Exhaust{PartID=10, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback" },
                 new Exhaust{PartID=11, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback" }
             };
-            exhausts.ForEach(s => context.Exhausts.AddOrUpdate(p => p.ExhaustName, s));
+            exhausts.ForEach(s => context.Exhausts.AddOrUpdate(p => p.PartID, s));
             context.SaveChanges();
 
             var brakes = new List<Brakes>
@@ -126,7 +126,7 @@ namespace PerformanceCarApp.Migrations
                 new Brakes{PartID=21, BrakeWeightSave = 8, BrakeName = "Brembo" },
                 new Brakes{PartID=22, BrakeWeightSave = 8, BrakeName = "Baer" }
             };
-            brakes.ForEach(s => context.Brakes.AddOrUpdate(p => p.BrakeName, s));
+            brakes.ForEach(s => context.Brakes.AddOrUpdate(p => p.PartID, s));
             context.SaveChanges();
 
             var engineParts = new List<EnginePart>
@@ -143,7 +143,7 @@ namespace PerformanceCarApp.Migrations
                 new EnginePart{PartID=43, EnginePartHPGain = 65, EnginePartName = "APR ECU Chip" },
                 new EnginePart{PartID=44, EnginePartHPGain = 65, EnginePartName = "APR ECU Chip" }
             };
-            engineParts.ForEach(s => context.EngineParts.AddOrUpdate(p => p.EnginePartName, s));
+            engineParts.ForEach(s => context.EngineParts.AddOrUpdate(p => p.PartID, s));
             context.SaveChanges();
 
             var intakes = new List<Intake>
@@ -160,7 +160,7 @@ namespace PerformanceCarApp.Migrations
                 new Intake{PartID=32, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake" },
                 new Intake{PartID=33, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake" },
             };
-            intakes.ForEach(s => context.Intakes.AddOrUpdate(p => p.IntakeName, s));
+            intakes.ForEach(s => context.Intakes.AddOrUpdate(p => p.PartID, s));
             context.SaveChanges();
 
             var suspensions = new List<Suspension>
@@ -177,7 +177,7 @@ namespace PerformanceCarApp.Migrations
                 new Suspension{PartID = 54, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3 },
                 new Suspension{PartID = 55, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3 }
             };
-            suspensions.ForEach(s => context.Suspensions.AddOrUpdate(p => p.SuspensionName, s));
+            suspensions.ForEach(s => context.Suspensions.AddOrUpdate(p => p.PartID, s));
             context.SaveChanges();
         }
     }
