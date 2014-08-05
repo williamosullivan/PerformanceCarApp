@@ -12,9 +12,9 @@ namespace PerformanceCarApp.Models
         [Key]
         public int IntakeID { get; set; }
         public int PartID { get; set; }
+        [ForeignKey("PartID")]
+        public virtual ICollection<Part> Parts { get; set; }
         public int IntakeHPGain { get; set; }
         public string IntakeName { get; set; }
-
-        public virtual ICollection<Part> Parts { get; set; }
     }
 }

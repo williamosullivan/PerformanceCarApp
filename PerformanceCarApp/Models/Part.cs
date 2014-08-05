@@ -9,13 +9,13 @@ namespace PerformanceCarApp.Models
 {
     public class Part
     {
-        [Key, Column(Order = 1)]
-        public int CarID { get; set;}
-        [Key, Column(Order = 2)]
+        [Key]
         public int PartID { get; set; }
+        public int CarID { get; set; }
+        [ForeignKey("CarID")]
+        public virtual ICollection<Car> Car { get; set; }
         public string PartType { get; set; }
 
-        public virtual ICollection<Car> Car { get; set; }
         public virtual Exhaust Exhaust { get; set; }
         public virtual Intake Intake { get; set; }
         public virtual EnginePart EnginePart { get; set; }

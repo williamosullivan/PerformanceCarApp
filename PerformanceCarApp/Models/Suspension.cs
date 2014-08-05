@@ -12,10 +12,10 @@ namespace PerformanceCarApp.Models
         [Key]
         public int SuspensionID { get; set; }
         public int PartID { get; set; }
+        [ForeignKey("PartID")]
+        public virtual ICollection<Part> Parts { get; set; }
         public int SuspensionDrop { get; set; }
         public int SuspensionWeightSave { get; set; }
         public string SuspensionName { get; set; }
-
-        public virtual ICollection<Part> Part { get; set; }
     }
 }
