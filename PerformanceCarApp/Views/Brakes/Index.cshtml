@@ -9,16 +9,16 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PartID)
+            @Html.ActionLink("BrakeName", "Index", new { sortOrder=ViewBag.NameSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BrakeWeightSave)
+            BrakeWeightSave
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BrakeName)
+            BrakeID
         </th>
         <th></th>
     </tr>

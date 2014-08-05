@@ -9,31 +9,28 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Make)
+            @Html.ActionLink("Make", "Index", new { sortOrder = ViewBag.MakeSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Model)
+            @Html.ActionLink("Model", "Index", new { sortOrder=ViewBag.NameSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Generation)
+            Generation
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Drivetrain)
+            Drivetrain
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BodyStyle)
+            BodyStyle
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BaseHorsepower)
+            BaseHorsePower
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EngineSize)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trim)
+            Trim
         </th>
 
     </tr>

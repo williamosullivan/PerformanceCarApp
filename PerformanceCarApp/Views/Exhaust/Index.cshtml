@@ -9,18 +9,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PartID)
+            @Html.ActionLink("ExhaustName", "Index", new { sortOrder =ViewBag.NameSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ExhaustHPGain)
+           ExhaustHPGain
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExhaustName)
-        </th>
-        <th></th>
+       <th></th>
     </tr>
 
 @foreach (var item in Model) {

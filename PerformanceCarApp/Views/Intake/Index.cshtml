@@ -9,16 +9,13 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PartID)
+            @Html.ActionLink("IntakeName", "Index", new {sortOrder=ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IntakeHPGain)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IntakeName)
+           IntakeHPGain
         </th>
         <th></th>
     </tr>
