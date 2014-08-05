@@ -1,12 +1,18 @@
-﻿body {
-    background-image: url(../Content/background.jpg);
-    background-position: center;
-    background-size: auto;
-    background-repeat: no-repeat;
-    color: #ff0000;
+﻿html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 75% georgia, sans-serif;
+    line-height: 1.9;
+    background: #fff;
+    color: #555753;
     font-size: large;
     background-color: rgba(0, 0, 0, 0.00);
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 .navbar {
     color: red !important;
@@ -18,7 +24,29 @@
     padding-top: 10%;
 }
 
+a:link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #B7A5DF;
+}
+
+a:visited {
+    font-weight: bold;
+    text-decoration: none;
+    color: #D4CDDC;
+}
+
+a:hover, a:focus, a:active {
+    text-decoration: underline;
+    color: #9685BA;
+}
+
+abbr {
+    border-bottom: none;
+}
+
 .jumbotron {
     background-color: rgba(0, 0, 0, 0.00);
     text-align: center;
 }
+
