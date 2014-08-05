@@ -19,7 +19,7 @@ namespace PerformanceCarApp.Controllers
         public ActionResult Index(string sortOrder)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.MakeSortParm = sortOrder == "Make" ? "model_desc" :"Make";
+            ViewBag.NameSortParm = sortOrder == "Make" ? "model_desc" :"Make";
             var cars = from c in db.Cars select c;
 
             switch(sortOrder)
