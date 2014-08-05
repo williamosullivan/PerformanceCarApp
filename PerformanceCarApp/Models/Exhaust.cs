@@ -10,9 +10,8 @@ namespace PerformanceCarApp.Models
     public class Exhaust
     {
         [Key]
-        public int ExhaustID { get; set; }
         public int PartID { get; set; }
-        [ForeignKey("PartID")]
+
         public virtual ICollection<Part> Parts { get; set; }
         public int ExhaustHPGain { get; set; }
         public string ExhaustName { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -19,7 +20,6 @@ namespace PerformanceCarApp.Models
         public string EngineSize { get; set; }
         public string Trim { get; set; }
 
-        [Required]
         public virtual ICollection<Part> Parts { get; set; }
     }
 }
