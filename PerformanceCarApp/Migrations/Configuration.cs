@@ -26,7 +26,7 @@ namespace PerformanceCarApp.Migrations
 
             var parts = new List<Part>
             {
-                new Part{PartID = 1, PartType = "Exhaust"}
+                new Part{PartID = 1, PartType = "Exhaust", CarID = 1 }
             };
             parts.ForEach(s => context.Parts.AddOrUpdate(p => p.PartType, s));
             context.SaveChanges();

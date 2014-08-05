@@ -12,7 +12,7 @@ namespace PerformanceCarApp.Models
         [Key]
         public int PartID { get; set; }
         public int CarID { get; set; }
-
+        [ForeignKey("CarID")]
         public virtual ICollection<Car> Car { get; set; }
         public string PartType { get; set; }
 
