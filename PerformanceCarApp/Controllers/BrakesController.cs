@@ -31,7 +31,7 @@ namespace PerformanceCarApp.Controllers
                     break;
             }
 
-            return View(db.Brakes.ToList());
+            return View(brakes.ToList());
         }
 
         // GET: Brakes/Details/5
