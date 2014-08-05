@@ -165,6 +165,7 @@
     <Compile Include="Controllers\ExhaustController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntakeController.cs" />
+    <Compile Include="Controllers\PartController.cs" />
     <Compile Include="Controllers\SuspensionController.cs" />
     <Compile Include="DAL\CarContext.cs" />
     <Compile Include="DAL\CarInitializer.cs" />
@@ -265,6 +266,11 @@
     <Content Include="Views\Suspension\Details.cshtml" />
     <Content Include="Views\Suspension\Edit.cshtml" />
     <Content Include="Views\Suspension\Index.cshtml" />
+    <Content Include="Views\Part\Create.cshtml" />
+    <Content Include="Views\Part\Delete.cshtml" />
+    <Content Include="Views\Part\Details.cshtml" />
+    <Content Include="Views\Part\Edit.cshtml" />
+    <Content Include="Views\Part\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
