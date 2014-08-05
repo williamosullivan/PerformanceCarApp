@@ -149,7 +149,6 @@ namespace PerformanceCarApp.Migrations
             var intakes = new List<Intake>
             {
                 new Intake{PartID=23, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake" },
-                new Intake{PartID=23, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake" },
                 new Intake{PartID=24, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake" },
                 new Intake{PartID=25, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake" },
                 new Intake{PartID=26, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake" },
