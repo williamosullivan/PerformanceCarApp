@@ -3,16 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace PerformanceCarApp.DAL
 {
-    public class CarInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<CarContext>
+    public class CarInitializer : DropCreateDatabaseIfModelChanges<CarContext>
     {
         protected override void Seed(CarContext context)
         {
-            /*var cars = new List<Car>
+            var cars = new List<Car>
             {
-                new Car{CarID = 1, Make = "VW", Model = "Golf R", BaseHorsepower = 265, BodyStyle = "Hatchback", Drivetrain = "AWD", EngineSize = "4 cylinder 2.0T", Generation = "MK6", Trim = "R"}
+                new Car{CarID = 1, Make = "VW", Model = "Golf R", BaseHorsepower = 265, BodyStyle = "Hatchback", Drivetrain = "AWD", EngineSize = "4 cylinder Turbo", Generation = "MK6", Trim = "R"},
+                new Car{CarID = 2, Make ="GMC", Model="Typhoon", BaseHorsepower= 220, BodyStyle="SUV", Drivetrain="AWD", EngineSize="6 cylinder Turbo", Generation="92/93", Trim = "Typhoon" }
             };
             cars.ForEach(s => context.Cars.Add(s));
             context.SaveChanges();
@@ -57,7 +59,7 @@ namespace PerformanceCarApp.DAL
                 new Suspension{SuspensionID = 1, PartID = 4, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3 }
             };
             suspensions.ForEach(s => context.Suspensions.Add(s));
-            context.SaveChanges();*/
+            context.SaveChanges();
         }
     }
 }
