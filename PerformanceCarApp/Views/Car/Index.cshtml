@@ -4,13 +4,15 @@
     ViewBag.Title = "Car Index";
 }
 <link rel="stylesheet" type="text/css" href="~/Content/style.css">
-<h2>Car Index</h2>
+<h2>Build Your Ride!</h2>
 
 <div>
-    @Html.DropDownList("CarMakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListCarMakes)
-    @Html.DropDownList("CarModelList", (IEnumerable<SelectListItem>)ViewBag.SelectListCarModels)
-    <button type="submit" value="submit" name="Submit" title="Submit" >
-        Submit
+    <center>
+        @Html.DropDownList("CarMakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListCarMakes)
+        @Html.DropDownList("CarModelList", (IEnumerable<SelectListItem>)ViewBag.SelectListCarModels)
+        <button type="submit" value="submit" name="Submit" title="Submit">
+            Submit
         </button>
+    </center>
     <br /><br />
 </div>
