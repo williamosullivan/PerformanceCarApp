@@ -1,4 +1,22 @@
-﻿@model PerformanceCarApp.Models.Car
+﻿@{  WebImage photo = null;
+  var newFileName = "";
+  var imagePath = "";
+
+  if (IsPost)
+  {
+      photo = WebImage.GetImageFromRequest();
+      if (photo != null)
+      {
+          newFileName = Guid.NewGuid().ToString() + "_" +
+              Path.GetFileName(photo.FileName);
+          imagePath = @"images\" + newFileName;
+
+          photo.Save(@"~\" + imagePath);
+      }
+  }
+}
+
+@model PerformanceCarApp.Models.Car
 
 @{
     ViewBag.Title = "Create";
@@ -7,10 +25,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Car</h4>
         <hr />
@@ -84,6 +102,23 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
+    </div>
+}
+<form action="" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend> Upload Image </legend>
+        <label for="Image">Image</label>
+        <input type="file" name="Image" />
+        <br />
+        <input type="submit" value="Upload" />
+    </fieldset>
+</form>
+<h1>Uploaded Image</h1>
+@if (imagePath != "")
+{
+    <div class="result">
+        <img src="@imagePath" alt="image" />
+
     </div>
 }
 
