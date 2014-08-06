@@ -81,6 +81,11 @@ namespace PerformanceCarApp.Controllers
         // GET: Car/Edit/5
         public ActionResult Edit(int? id)
         {
+            PopulateBrakesDropDown(id);
+            PopulateEnginePartDropDown(id);
+            PopulateExhaustDropDown(id);
+            PopulateIntakeDropDown(id);
+            PopulateSuspensionDropDown(id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -147,6 +152,7 @@ namespace PerformanceCarApp.Controllers
                               select i.IntakeName;
 
             intakeList.AddRange(intakeQuery);
+            ViewBag.SelectListIntake = new SelectList(intakeList);
         }
 
         public void PopulateBrakesDropDown(int? id)
@@ -161,6 +167,7 @@ namespace PerformanceCarApp.Controllers
                               select i.BrakeName;
 
             brakeList.AddRange(brakeQuery);
+            ViewBag.SelectListBrakes= new SelectList(brakeList);
         }
 
         public void PopulateEnginePartDropDown(int? id)
@@ -175,6 +182,7 @@ namespace PerformanceCarApp.Controllers
                               select i.BrakeName;
 
             enginePartList.AddRange(enginePartQuery);
+            ViewBag.SelectListEngineParts = new SelectList(enginePartList);
         }
 
         public void PopulateExhaustDropDown(int? id)
@@ -189,6 +197,7 @@ namespace PerformanceCarApp.Controllers
                               select i.IntakeName;
 
             exhaustList.AddRange(exhaustQuery);
+            ViewBag.SelectListExhaust = new SelectList(exhaustList);
         }
 
         public void PopulateSuspensionDropDown(int? id)
@@ -203,6 +212,7 @@ namespace PerformanceCarApp.Controllers
                               select i.IntakeName;
 
             suspensionList.AddRange(suspensionQuery);
+            ViewBag.SelectListSuspensions = new SelectList(suspensionList);
         }
 
         protected override void Dispose(bool disposing)
