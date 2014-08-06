@@ -265,7 +265,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\Brakes\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Brakes\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
@@ -285,11 +285,11 @@
     <Content Include="Views\Car\Details.cshtml" />
     <Content Include="Views\Car\Edit.cshtml" />
     <Content Include="Views\Car\Index.cshtml" />
-    <Content Include="Views\Account\Brakes\Create.cshtml" />
-    <Content Include="Views\Account\Brakes\Delete.cshtml" />
-    <Content Include="Views\Account\Brakes\Details.cshtml" />
-    <Content Include="Views\Account\Brakes\Edit.cshtml" />
-    <Content Include="Views\Account\Brakes\Index.cshtml" />
+    <Content Include="Views\Brakes\Create.cshtml" />
+    <Content Include="Views\Brakes\Delete.cshtml" />
+    <Content Include="Views\Brakes\Details.cshtml" />
+    <Content Include="Views\Brakes\Edit.cshtml" />
+    <Content Include="Views\Brakes\Index.cshtml" />
     <Content Include="Views\EnginePart\Create.cshtml" />
     <Content Include="Views\EnginePart\Delete.cshtml" />
     <Content Include="Views\EnginePart\Details.cshtml" />
@@ -318,7 +318,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
