@@ -135,6 +135,76 @@ namespace PerformanceCarApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public void PopulateIntakeDropDown(int? id)
+        {
+            var intakeList = new List<string>();
+            var intakeQuery = from c in db.Cars
+                              join p in db.Parts
+                              on c.CarID equals p.CarID
+                              join i in db.Intakes
+                              on p.PartID equals i.PartID
+                              where c.CarID == id
+                              select i.IntakeName;
+
+            intakeList.AddRange(intakeQuery);
+        }
+
+        public void PopulateBrakesDropDown(int? id)
+        {
+            var brakeList = new List<string>();
+            var brakeQuery = from c in db.Cars
+                              join p in db.Parts
+                              on c.CarID equals p.CarID
+                              join i in db.Brakes
+                              on p.PartID equals i.PartID
+                              where c.CarID == id
+                              select i.BrakeName;
+
+            brakeList.AddRange(brakeQuery);
+        }
+
+        public void PopulateEnginePartDropDown(int? id)
+        {
+            var enginePartList = new List<string>();
+            var enginePartQuery = from c in db.Cars
+                              join p in db.Parts
+                              on c.CarID equals p.CarID
+                              join i in db.Brakes
+                              on p.PartID equals i.PartID
+                              where c.CarID == id
+                              select i.BrakeName;
+
+            enginePartList.AddRange(enginePartQuery);
+        }
+
+        public void PopulateExhaustDropDown(int? id)
+        {
+            var exhaustList = new List<string>();
+            var exhaustQuery = from c in db.Cars
+                              join p in db.Parts
+                              on c.CarID equals p.CarID
+                              join i in db.Intakes
+                              on p.PartID equals i.PartID
+                              where c.CarID == id
+                              select i.IntakeName;
+
+            exhaustList.AddRange(exhaustQuery);
+        }
+
+        public void PopulateSuspensionDropDown(int? id)
+        {
+            var suspensionList = new List<string>();
+            var suspensionQuery = from c in db.Cars
+                              join p in db.Parts
+                              on c.CarID equals p.CarID
+                              join i in db.Intakes
+                              on p.PartID equals i.PartID
+                              where c.CarID == id
+                              select i.IntakeName;
+
+            suspensionList.AddRange(suspensionQuery);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
