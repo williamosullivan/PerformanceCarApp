@@ -5,96 +5,11 @@
 }
 <link rel="stylesheet" type="text/css" href="~/Content/style.css">
 <h2>Car Index</h2>
-<form action="">
-    <select name="Car">
-        <optgroup label="VolksWagon">
 
-            <option value="Golf">Golf</option>
-        </optgroup>
-        
-        <optgroup label="Chevrolet">
-            <option value="Camero">Camero</option>
-            <option value="Corvette">Corvette</option>
-            <option value="Imapala">Impala</option>
-        </optgroup>
-        <optgroup label="Ford">
-            <option value="Fusion">Fusion</option>
-            <option value="Focus">Focus</option>
-            <option value="Mustang">Mustang</option>
-        </optgroup>
-        <optgroup label="Dodge">
-            <option value="Challenger">Challenger</option>
-            <option value="Charger">Charger</option>
-        </optgroup>
-        <optgroup label="GMC">
-            <option value="Typhoon">Typhoon</option>
-        </optgroup>
-    </select>
-    <input type="submit" value="search"/>
-</form>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-<table>
-    <tr>
-        <th>
-            @Html.ActionLink("Make", "Index", new { sortOrder = ViewBag.NameSortParm })
-        </th>
-        <th>
-            @Html.ActionLink("Model", "Index", new { sortOrder=ViewBag.NameSortParm})
-        </th>  
-        <th>
-            Generation  
-        </th>
-        <th>
-            Drivetrain  
-        </th>
-        <th>
-            BodyStyle  
-        </th>
-        <th>
-            BaseHorsePower  
-        </th>
-        <th>
-            Trim  
-        </th>
-
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Make)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Generation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Drivetrain)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BodyStyle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BaseHorsepower)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EngineSize)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Trim)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CarID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CarID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CarID })
-            </td>
-        </tr>
-    }
-
-</table>
+<div>
+    @Html.DropDownList("CarMakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListCarMakes)
+    @Html.DropDownList("CarModelList", (IEnumerable<SelectListItem>)ViewBag.SelectListCarModels)
+    <button type="submit" value="submit" name="Submit" title="Submit" >
+        Submit
+        </button>
+</div>

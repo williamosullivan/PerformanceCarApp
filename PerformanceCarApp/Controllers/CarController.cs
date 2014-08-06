@@ -18,6 +18,7 @@ namespace PerformanceCarApp.Controllers
         // GET: Car
         public ActionResult Index(string sortOrder)
         {
+            PopulateCarDropDown();
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.MakeSortParm = sortOrder == "Make" ? "make_desc" :"Make";
             var cars = from c in db.Cars select c;
@@ -213,6 +214,18 @@ namespace PerformanceCarApp.Controllers
 
             suspensionList.AddRange(suspensionQuery);
             ViewBag.SelectListSuspensions = new SelectList(suspensionList);
+        }
+
+        public void PopulateCarDropDown()
+        {
+            var carMakeQuery = from c in db.Cars
+                               orderby c.Make
+                               select c.Make;
+            ViewBag.SelectListCarMakes = new SelectList(carMakeQuery);
+
+            var carModelQuery = from c in db.Cars
+                                select c.Model;
+            ViewBag.SelectListCarModels = new SelectList(carModelQuery);
         }
 
         protected override void Dispose(bool disposing)
