@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PerformanceCarApp.Models.Brakes>
+
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/style.css">
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.ActionLink("BrakeName", "Index", new { sortOrder=ViewBag.NameSortParm})
+        </th>
+        <th>
+            BrakeWeightSave
+        </th>
+        <th>
+            PartID
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrakeWeightSave)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrakeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PartID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PartID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PartID })
+        </td>
+    </tr>
+}
+
+</table>
