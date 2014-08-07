@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201408051545417_InitialCreate.Designer.cs">
       <DependentUpon>201408051545417_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408071421181_ComplexDataModel.cs" />
+    <Compile Include="Migrations\201408071421181_ComplexDataModel.Designer.cs">
+      <DependentUpon>201408071421181_ComplexDataModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Brakes.cs" />
@@ -333,6 +337,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201408051545417_InitialCreate.resx">
       <DependentUpon>201408051545417_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408071421181_ComplexDataModel.resx">
+      <DependentUpon>201408071421181_ComplexDataModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
