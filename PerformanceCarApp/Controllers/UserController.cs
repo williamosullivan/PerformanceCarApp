@@ -129,5 +129,21 @@ namespace PerformanceCarApp.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Validate(string email, string password)
+        {
+            var query = from u in db.Users
+                             where u.UserEmail == email
+                             && u.UserPassword == password
+                             select u;
+            if (query != null)
+            {
+                return RedirectToAction("Welcome");
+            }
+            else
+            {
+                return View("NotFound");
+            }
+        }
     }
 }
