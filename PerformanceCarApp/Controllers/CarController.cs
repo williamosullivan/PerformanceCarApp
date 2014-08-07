@@ -253,7 +253,7 @@ namespace PerformanceCarApp.Controllers
                 if (file.ContentLength > 0) 
                 { 
                     var fileName = Path.GetFileName(file.FileName); 
-                    var path = Path.Combine(Server.MapPath("~/App_Data/Images"), fileName); 
+                    var path = Path.Combine(Server.MapPath("~/Images"), fileName); 
                     file.SaveAs(path); 
                 } 
                 ViewBag.Message = "Upload successful";

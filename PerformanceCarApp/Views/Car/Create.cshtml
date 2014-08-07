@@ -104,7 +104,7 @@
         </div>
     </div>
 }
-@using (Html.BeginForm("Car", "Create", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Car", FormMethod.Post, new { enctype = "multipart/form-data" }))
 { @Html.AntiForgeryToken()
     <fieldset>
         <legend>Upload a file</legend>
