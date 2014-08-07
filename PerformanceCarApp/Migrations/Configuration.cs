@@ -179,6 +179,13 @@ namespace PerformanceCarApp.Migrations
             };
             suspensions.ForEach(s => context.Suspensions.AddOrUpdate(p => p.PartID, s));
             context.SaveChanges();
+
+            var members = new List<User>
+            {
+                new User{UserID = 1, UserName = "Bill O'Sullivan", UserEmail = "williamosullivan@gmail.com", UserBirthday = DateTime.Parse("7/23/1981"), Gender = "M", CarID = 1, UserPassword = "password"}
+            };
+            members.ForEach(s => context.Users.AddOrUpdate(p => p.UserName, s));
+            context.SaveChanges();
         }
     }
 }
