@@ -10,6 +10,7 @@
 
 <h2>Build Your Ride!</h2>
 
+<<<<<<< HEAD
 
 <div>
     <center>
@@ -21,3 +22,18 @@
     </center>
     <br /><br />
 </div>
+=======
+@using (Html.BeginForm("Edit", "Car"))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <center>
+            @Html.DropDownList("CarMakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListCarMakes)
+            <button type="submit" value="submit" name="Submit">
+                Submit
+            </button>
+        </center>
+        <br /><br />
+    </div>
+}
+>>>>>>> 4f2f980f048afb0b71206e8dba58d9ea541d273a
