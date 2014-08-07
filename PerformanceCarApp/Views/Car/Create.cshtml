@@ -104,23 +104,15 @@
         </div>
     </div>
 }
-<form action="" method="post" enctype="multipart/form-data">
+@using (Html.BeginForm("Car", "Create", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{ @Html.AntiForgeryToken()
     <fieldset>
-        <legend> Upload Image </legend>
-        <label for="Image">Image</label>
-        <input type="file" name="Image" />
-        <br />
-        <input type="submit" value="Upload" />
-    </fieldset>
-</form>
-<h1>Uploaded Image</h1>
-@if (imagePath != "")
-{
-    <div class="result">
-        <img src="@imagePath" alt="image" />
-
-    </div>
-}
+        <legend>Upload a file</legend>
+        <div class="editor-field">
+            @Html.TextBox("file", "", new { type = "file" })
+        </div>
+        <div class="editor-field"> <input type="submit" value="Upload" /> </div>
+    </fieldset> }
 
 <div>
     @Html.ActionLink("Back to List", "Index")

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using PerformanceCarApp.DAL;
 using PerformanceCarApp.Models;
+using System.IO;
 
 namespace PerformanceCarApp.Controllers
 {
@@ -20,17 +21,17 @@ namespace PerformanceCarApp.Controllers
         {
             PopulateCarDropDown();
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.MakeSortParm = sortOrder == "Make" ? "make_desc" :"Make";
+            ViewBag.MakeSortParm = sortOrder == "Make" ? "make_desc" : "Make";
             var cars = from c in db.Cars select c;
 
-            if(!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(searchString))
             {
                 cars = cars.Where(c => c.Model.ToUpper().Contains(searchString.ToUpper())
                 || c.Make.ToUpper().Contains(searchString.ToUpper()));
-                    
+
             }
 
-            switch(sortOrder)
+            switch (sortOrder)
             {
                 case "name_desc":
                     cars = cars.OrderByDescending(c => c.Model);
@@ -167,27 +168,27 @@ namespace PerformanceCarApp.Controllers
         {
             var brakeList = new List<string>();
             var brakeQuery = from c in db.Cars
-                              join p in db.Parts
-                              on c.CarID equals p.CarID
-                              join i in db.Brakes
-                              on p.PartID equals i.PartID
-                              where c.CarID == id
-                              select i.BrakeName;
+                             join p in db.Parts
+                             on c.CarID equals p.CarID
+                             join i in db.Brakes
+                             on p.PartID equals i.PartID
+                             where c.CarID == id
+                             select i.BrakeName;
 
             brakeList.AddRange(brakeQuery);
-            ViewBag.SelectListBrakes= new SelectList(brakeList);
+            ViewBag.SelectListBrakes = new SelectList(brakeList);
         }
 
         public void PopulateEnginePartDropDown(int? id)
         {
             var enginePartList = new List<string>();
             var enginePartQuery = from c in db.Cars
-                              join p in db.Parts
-                              on c.CarID equals p.CarID
-                              join i in db.Brakes
-                              on p.PartID equals i.PartID
-                              where c.CarID == id
-                              select i.BrakeName;
+                                  join p in db.Parts
+                                  on c.CarID equals p.CarID
+                                  join i in db.Brakes
+                                  on p.PartID equals i.PartID
+                                  where c.CarID == id
+                                  select i.BrakeName;
 
             enginePartList.AddRange(enginePartQuery);
             ViewBag.SelectListEngineParts = new SelectList(enginePartList);
@@ -197,12 +198,12 @@ namespace PerformanceCarApp.Controllers
         {
             var exhaustList = new List<string>();
             var exhaustQuery = from c in db.Cars
-                              join p in db.Parts
-                              on c.CarID equals p.CarID
-                              join i in db.Intakes
-                              on p.PartID equals i.PartID
-                              where c.CarID == id
-                              select i.IntakeName;
+                               join p in db.Parts
+                               on c.CarID equals p.CarID
+                               join i in db.Intakes
+                               on p.PartID equals i.PartID
+                               where c.CarID == id
+                               select i.IntakeName;
 
             exhaustList.AddRange(exhaustQuery);
             ViewBag.SelectListExhaust = new SelectList(exhaustList);
@@ -212,12 +213,12 @@ namespace PerformanceCarApp.Controllers
         {
             var suspensionList = new List<string>();
             var suspensionQuery = from c in db.Cars
-                              join p in db.Parts
-                              on c.CarID equals p.CarID
-                              join i in db.Intakes
-                              on p.PartID equals i.PartID
-                              where c.CarID == id
-                              select i.IntakeName;
+                                  join p in db.Parts
+                                  on c.CarID equals p.CarID
+                                  join i in db.Intakes
+                                  on p.PartID equals i.PartID
+                                  where c.CarID == id
+                                  select i.IntakeName;
 
             suspensionList.AddRange(suspensionQuery);
             ViewBag.SelectListSuspensions = new SelectList(suspensionList);
@@ -243,5 +244,27 @@ namespace PerformanceCarApp.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase file) 
+        { 
+            try 
+            { 
+                if (file.ContentLength > 0) 
+                { 
+                    var fileName = Path.GetFileName(file.FileName); 
+                    var path = Path.Combine(Server.MapPath("~/App_Data/Images"), fileName); 
+                    file.SaveAs(path); 
+                } 
+                ViewBag.Message = "Upload successful";
+                return RedirectToAction("Create");
+            } 
+            catch 
+            { 
+                ViewBag.Message = "Upload failed"; 
+                return RedirectToAction("Uploads"); 
+            } 
+        }
+
     }
 }
