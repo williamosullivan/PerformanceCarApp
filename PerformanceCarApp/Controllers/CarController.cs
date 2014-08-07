@@ -88,6 +88,7 @@ namespace PerformanceCarApp.Controllers
         }
 
         // GET: Car/Edit/5
+        
         public ActionResult Edit(int? id)
         {
             PopulateBrakesDropDown(id);
@@ -114,12 +115,12 @@ namespace PerformanceCarApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CarID,Make,Model,Generation,Drivetrain,BodyStyle,BaseHorsepower,EngineSize,Trim")] Car car)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(car).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            PopulateBrakesDropDown(car.CarID);
+            PopulateEnginePartDropDown(car.CarID);
+            PopulateExhaustDropDown(car.CarID);
+            PopulateIntakeDropDown(car.CarID);
+            PopulateSuspensionDropDown(car.CarID);
+
             return View(car);
         }
 
@@ -227,8 +228,8 @@ namespace PerformanceCarApp.Controllers
         public void PopulateCarDropDown()
         {
             var carMakeQuery = from c in db.Cars
-                               orderby c.Make
-                               select c.Make;
+                               orderby c.CarID
+                               select c.CarID;
             ViewBag.SelectListCarMakes = new SelectList(carMakeQuery);
 
             var carModelQuery = from c in db.Cars
