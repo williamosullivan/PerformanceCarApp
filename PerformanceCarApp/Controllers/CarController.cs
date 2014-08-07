@@ -225,12 +225,12 @@ namespace PerformanceCarApp.Controllers
             ViewBag.SelectListSuspensions = new SelectList(suspensionList);
         }
 
-        public void PopulateCarDropDown(object selectedCar = null)
+        public void PopulateCarDropDown()
         {
             var carMakeQuery = from c in db.Cars
-                               orderby c.Make
-                               select c;
-            ViewBag.SelectListCarMakes = new SelectList(carMakeQuery, "CarID", "Make", selectedCar);
+                               orderby c.CarID
+                               select c.CarID;
+            ViewBag.SelectListCarMakes = new SelectList(carMakeQuery);
 
             var carModelQuery = from c in db.Cars
                                 select c.Model;
