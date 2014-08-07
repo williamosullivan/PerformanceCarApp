@@ -21,6 +21,7 @@ namespace PerformanceCarApp.DAL
         public DbSet<EnginePart> EngineParts { get; set; }
         public DbSet<Intake> Intakes { get; set; }
         public DbSet<Suspension> Suspensions { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
