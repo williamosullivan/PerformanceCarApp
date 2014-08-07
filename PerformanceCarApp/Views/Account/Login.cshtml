@@ -5,10 +5,6 @@
     ViewBag.Title = "Log in";
 }
 
-
-
-
-
 <h2>@ViewBag.Title.</h2>
 
 <div class="row">
@@ -47,16 +43,6 @@
                         <input type="submit" value="Log in" class="btn btn-default" />
                     </div>
                 </div>
-    <tr id="ctl01_MC_MemberLogOn_SocialLogin">
-        <td colspan="4">
-            <div style="margin-top:95px">
-                Or sign in using <a class="oauth" title="Sign in using Facebook" href="/script/Membership/OAuthLogOn.aspx?auth=Facebook"><img src="~/Content/Images/facebook-lg.png" style="vertical-align:middle;padding-right:3px;border:0;" /></a>
-                <a class="oauth" title="Sign in using Google" href="/script/Membership/OAuthLogOn.aspx?auth=Google"><img src="~/Content/Images/google-plus-lg.png" style="vertical-align:middle;padding-right:3px;border:0;" /></a>
-                <a class="oauth" title="Sign in using Linkedin" href="/script/Membership/OAuthLogOn.aspx?auth=LinkedIn"><img src="~/Content/Images/linkedin-lg.png" style="vertical-align:middle;padding-right:3px;border:0;" /></a>
-
-            </div>
-        </td>
-    </tr>
                 <p>
                     @Html.ActionLink("Register as a new user", "Register")
                 </p>
@@ -75,3 +61,12 @@
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval") }
+<tr id="ctl01_MC_MemberLogOn_SocialLogin">
+    <td colspan="4">
+        <div style="margin-top:95px">
+            Or sign in using <a class="oauth" title="Sign in using Facebook" href="/script/Membership/OAuthLogOn.aspx?auth=Facebook"><img src="~/Content/Images/facebook-lg.png" style="vertical-align:middle;padding-right:3px;border:0;" /></a>
+            <a class="oauth" title="Sign in using Google" href="/script/Membership/OAuthLogOn.aspx?auth=Google"><img src="~/Content/Images/google-plus-lg.png" style="vertical-align:middle;padding-right:3px;border:0;" /></a>
+            <a class="oauth" title="Sign in using Linkedin" href="/script/Membership/OAuthLogOn.aspx?auth=LinkedIn"><img src="~/Content/Images/linkedin-lg.png" style="vertical-align:middle;padding-right:3px;border:0;" /></a>
+        </div>
+    </td>
+</tr>

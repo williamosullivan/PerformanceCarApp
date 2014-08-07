@@ -14,7 +14,7 @@ using PerformanceCarApp.Models;
 
 namespace PerformanceCarApp.Controllers
 {
-    [Authorize]
+//    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;
