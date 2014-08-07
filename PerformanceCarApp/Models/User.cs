@@ -16,6 +16,8 @@ namespace PerformanceCarApp.Models
         public string UserPassword { get; set; }
         public DateTime UserBirthday { get; set; }
         public string Gender { get; set; }
+        public int Horsepower { get; set; }
+        public double QuarterMile { get; set; }
         
         public int CarID { get; set; }
         [ForeignKey("CarID")]

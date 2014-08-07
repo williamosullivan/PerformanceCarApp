@@ -12,19 +12,22 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UserCar.Make)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.UserEmail)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserPassword)
+            @Html.DisplayNameFor(model => model.UserCar.Make)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserBirthday)
+            @Html.DisplayNameFor(model => model.UserCar.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Horsepower)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuarterMile)
         </th>
         <th></th>
     </tr>
@@ -32,19 +35,22 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.UserCar.Make)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.UserEmail)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UserPassword)
+            @Html.DisplayFor(modelItem => item.UserCar.Make)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UserBirthday)
+            @Html.DisplayFor(modelItem => item.UserCar.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Horsepower)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuarterMile)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
