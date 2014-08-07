@@ -19,16 +19,27 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Performance Car Loft", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+               
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+
                     <li>@Html.ActionLink("Car", "Index", "Car")</li>
                     <li>@Html.ActionLink("Part", "Index", "Part")</li>
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <li>@Html.TextBox("SearchString")<input type="submit" value="Search" /></li>
+
+
                 </ul>
                 @Html.Partial("_LoginPartial")
+
             </div>
         </div>
     </div>
