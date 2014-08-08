@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Performance Car Loft", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-               
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -55,22 +55,25 @@
             </div>
             Click to open
             <script>
-    $(document.body).click(function()
-    {
-        if($("div:first").is(":hidden") ){
-            $("div").show("slow");
-        }
+                $(document.head).click(function () {
+                    if ($("div:first").is(":hidden")) {
+                        $("div").show("slow");
+                    }
 
-        else{
-            $("div").slideUp();
-        }
-    })
+                    else {
+                        $("div").slideUp();
+                    }
+                })
             </script>
         </div>
     </div>
+    
+
     <div class="container body-content">
+
         @RenderBody()
-        <hr />
+
+
         <footer>
             <p>&copy; @DateTime.Now.Year - Performance Car Loft</p>
         </footer>
@@ -79,5 +82,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
