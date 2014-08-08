@@ -222,6 +222,27 @@ namespace PerformanceCarApp.Controllers
             ViewBag.BHP = car.BaseHorsepower;
         }
 
+        public void PopulateProjectedHorsepower(string name)
+        {
+            Intake intake = db.Intakes.Find(name);
+            if (intake != null)
+                ViewBag.HP += intake.IntakeHPGain;
+            else
+            {
+                EnginePart ep = db.EngineParts.Find(name);
+                if (ep != null)
+                    ViewBag.HP += ep.EnginePartHPGain;
+                else
+                {
+                    Exhaust ex = db.Exhausts.Find(name);
+                    if (ex != null)
+                        ViewBag.HP += ex.ExhaustHPGain;
+                    else
+                        ViewBag.HP = ViewBag.HP;
+                }
+            }
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
