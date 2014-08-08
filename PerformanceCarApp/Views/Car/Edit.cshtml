@@ -1,21 +1,41 @@
 ﻿<script type="text/javascript">
     $(document).ready(function () {
         $('#IntakeList').change(function () {
-            $('#EnginePartList').change(function () {
-                $('#ExhaustList').change(function () {
-                    var name1 = $('#IntakeList').val();
-                    var name2 = $('#EnginePartList').val();
-                    var name3 = $('#ExhaustList').val();
+            var name1 = $('#IntakeList').val();
+            $.ajax({
+                url: '/CarController/PopulateProjectedHorsepower',
+                data: { a: name1, c: name3 },
+                success: function (result) {
+                },
+                error: function () {
+                }
+            });
+        });
+    });
 
-                    $.ajax({
-                        url: '/CarController/PopulateProjectedHorsepower',
-                        data: { a: name1, b: name2, c: name3 },
-                        success: function (result) {
-                        },
-                        error: function () {
-                        }
-                    });
-                });
+    $(document).ready(function () {
+        $('#EnginePartList').change(function () {
+            var name2 = $('#EnginePartList').val();
+            $.ajax({
+                url: '/CarController/PopulateProjectedHorsepower',
+                data: { a: name2 },
+                success: function (result) {
+                },
+                error: function () {
+                }
+            });
+        });
+    });
+    $(document).ready(function () {
+        $('#ExhaustList').change(function () {
+            var name2 = $('#ExhaustList').val();
+            $.ajax({
+                url: '/CarController/PopulateProjectedHorsepower',
+                data: { a: name2 },
+                success: function (result) {
+                },
+                error: function () {
+                }
             });
         });
     });
@@ -43,6 +63,10 @@
     Base Horsepower: @Html.TextBox("BaseHorsepower", (int)ViewBag.BHP)
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     Projected Horsepower: @Html.TextBox("ProjectedHorsepower", (int)ViewBag.BHP)
+    <br /><br />
+    Suspension Drop: @Html.TextBox("Drop")
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    Weight Saved: @Html.TextBox("Weight")
 </center>
 <div>
     @Html.ActionLink("Back to List", "Index")
