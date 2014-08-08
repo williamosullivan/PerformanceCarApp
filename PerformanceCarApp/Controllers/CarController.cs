@@ -19,17 +19,15 @@ namespace PerformanceCarApp.Controllers
         // GET: Car
         public ViewResult Index(string sortOrder, string searchString)
         {
-            PopulateCarDropDown();
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.MakeSortParm = sortOrder == "Make" ? "make_desc" : "Make";
-            var cars = from c in db.Cars select c;
+            var cars = from c in db.Cars
+                       select c;
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                cars = cars.Where(c => c.Model.ToUpper().Contains(searchString.ToUpper())
-                || c.Make.ToUpper().Contains(searchString.ToUpper()));
-
-            }
+            cars = cars.Where(c => c.Model.ToUpper().Contains(searchString.ToUpper())
+            || c.Make.ToUpper().Contains(searchString.ToUpper()) || c.Generation.ToUpper().
+            Contains(searchString.ToUpper()) || c.Drivetrain.ToUpper().Contains(searchString.ToUpper()) ||
+            c.EngineSize.ToUpper().Contains(searchString.ToUpper()));
 
             switch (sortOrder)
             {
@@ -88,7 +86,7 @@ namespace PerformanceCarApp.Controllers
         }
 
         // GET: Car/Edit/5
-        
+
         public ActionResult Edit(int? id)
         {
             PopulateBrakesDropDown(id);
@@ -100,7 +98,7 @@ namespace PerformanceCarApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Car car = db.Cars.Find(id);
+            Car car = new Car();
             if (car == null)
             {
                 return HttpNotFound();
@@ -115,11 +113,6 @@ namespace PerformanceCarApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CarID,Make,Model,Generation,Drivetrain,BodyStyle,BaseHorsepower,EngineSize,Trim")] Car car)
         {
-            PopulateBrakesDropDown(car.CarID);
-            PopulateEnginePartDropDown(car.CarID);
-            PopulateExhaustDropDown(car.CarID);
-            PopulateIntakeDropDown(car.CarID);
-            PopulateSuspensionDropDown(car.CarID);
 
             return View(car);
         }
@@ -225,12 +218,12 @@ namespace PerformanceCarApp.Controllers
             ViewBag.SelectListSuspensions = new SelectList(suspensionList);
         }
 
-        public void PopulateCarDropDown(object selectedCar = null)
+        public void PopulateCarDropDown(Car selectedCar)
         {
             var carMakeQuery = from c in db.Cars
                                orderby c.Make
                                select c;
-            ViewBag.SelectListCarMakes = new SelectList(carMakeQuery, "CarID", "Make", selectedCar);
+            ViewBag.SelectListCarMakes = new SelectList(carMakeQuery, "CarID", "Make");
 
             var carModelQuery = from c in db.Cars
                                 select c.Model;
@@ -247,24 +240,24 @@ namespace PerformanceCarApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Upload(HttpPostedFileBase file) 
-        { 
-            try 
-            { 
-                if (file.ContentLength > 0) 
-                { 
-                    var fileName = Path.GetFileName(file.FileName); 
-                    var path = Path.Combine(Server.MapPath("~/Images"), fileName); 
-                    file.SaveAs(path); 
-                } 
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                    file.SaveAs(path);
+                }
                 ViewBag.Message = "Upload successful";
                 return RedirectToAction("Create");
-            } 
-            catch 
-            { 
-                ViewBag.Message = "Upload failed"; 
-                return RedirectToAction("Uploads"); 
-            } 
+            }
+            catch
+            {
+                ViewBag.Message = "Upload failed";
+                return RedirectToAction("Uploads");
+            }
         }
 
     }

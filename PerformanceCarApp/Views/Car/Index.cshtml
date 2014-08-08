@@ -7,19 +7,64 @@
 
 
 <h2>Car Index</h2>
+<br /><br />
+@Html.ActionLink("CarIndex", "Index", new { sortOrder = ViewBag.NameSortParm })
+<br /><br />
 <center>
     <h2>Build Your Ride!</h2>
+    <br /><br />
+    @using (Html.BeginForm())
+    {
+        <p>
+            Find by Make, Model, Generation, Drivetrain, or Engine Size:
+            <br /><br />
+            @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <br /><br />
 </center>
-@using (Html.BeginForm("Edit", "Car"))
-{
-    @Html.AntiForgeryToken()
-    <div>
-        <center>
-            @Html.DropDownList("CarMakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListCarMakes)
-            <button type="submit" value="submit" name="Submit">
-                Submit
-            </button>
-        </center>
-        <br /><br />
-    </div>
-}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Make)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Generation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drivetrain)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngineSize)
+        </th>
+    </tr>
+    <tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Generation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Drivetrain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineSize)
+            </td>
+            <td>
+                @Html.ActionLink("Build It!", "Edit", new { id = item.CarID }) |
+            </td>
+        </tr>
+        }
+    </table>
