@@ -8,6 +8,15 @@
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="~/Content/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/HomeStyle.css" />
+    <style>
+        div {
+            background-image: url(../../Images/red_garage_door.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
     <div class="fb-like"
@@ -44,6 +53,19 @@
                 @Html.Partial("_LoginPartial")
 
             </div>
+            Click to open
+            <script>
+    $(document.body).click(function()
+    {
+        if($("div:first").is(":hidden") ){
+            $("div").show("slow");
+        }
+
+        else{
+            $("div").slideUp();
+        }
+    })
+            </script>
         </div>
     </div>
     <div class="container body-content">
