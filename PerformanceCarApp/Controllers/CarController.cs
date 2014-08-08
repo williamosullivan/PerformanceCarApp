@@ -94,6 +94,7 @@ namespace PerformanceCarApp.Controllers
             PopulateExhaustDropDown(id);
             PopulateIntakeDropDown(id);
             PopulateSuspensionDropDown(id);
+            PopulateBaseHorsepower(id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -213,6 +214,12 @@ namespace PerformanceCarApp.Controllers
             var carModelQuery = from c in db.Cars
                                 select c.Model;
             ViewBag.SelectListCarModels = new SelectList(carModelQuery);
+        }
+
+        public void PopulateBaseHorsepower(int? id)
+        {
+            Car car = db.Cars.Find(id);
+            ViewBag.BHP = car.BaseHorsepower;
         }
 
         protected override void Dispose(bool disposing)
