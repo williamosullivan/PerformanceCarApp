@@ -181,7 +181,6 @@
     <Compile Include="Controllers\ExhaustController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntakeController.cs" />
-    <Compile Include="Controllers\PartController.cs" />
     <Compile Include="Controllers\SuspensionController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\CarContext.cs" />
@@ -189,13 +188,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201408051545417_InitialCreate.cs" />
-    <Compile Include="Migrations\201408051545417_InitialCreate.Designer.cs">
-      <DependentUpon>201408051545417_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408071421181_ComplexDataModel.cs" />
-    <Compile Include="Migrations\201408071421181_ComplexDataModel.Designer.cs">
-      <DependentUpon>201408071421181_ComplexDataModel.cs</DependentUpon>
+    <Compile Include="Migrations\201408081813335_InitialCreate.cs" />
+    <Compile Include="Migrations\201408081813335_InitialCreate.Designer.cs">
+      <DependentUpon>201408081813335_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -205,7 +200,6 @@
     <Compile Include="Models\Exhaust.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Intake.cs" />
-    <Compile Include="Models\Part.cs" />
     <Compile Include="Models\Suspension.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -320,11 +314,6 @@
     <Content Include="Views\Suspension\Details.cshtml" />
     <Content Include="Views\Suspension\Edit.cshtml" />
     <Content Include="Views\Suspension\Index.cshtml" />
-    <Content Include="Views\Part\Create.cshtml" />
-    <Content Include="Views\Part\Delete.cshtml" />
-    <Content Include="Views\Part\Details.cshtml" />
-    <Content Include="Views\Part\Edit.cshtml" />
-    <Content Include="Views\Part\Index.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
@@ -341,11 +330,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408051545417_InitialCreate.resx">
-      <DependentUpon>201408051545417_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408071421181_ComplexDataModel.resx">
-      <DependentUpon>201408071421181_ComplexDataModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408081813335_InitialCreate.resx">
+      <DependentUpon>201408081813335_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

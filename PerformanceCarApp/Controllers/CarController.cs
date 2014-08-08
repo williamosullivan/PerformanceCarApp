@@ -145,14 +145,11 @@ namespace PerformanceCarApp.Controllers
 
         public void PopulateIntakeDropDown(int? id)
         {
+            var auto = db.Cars.Find(id);
             var intakeList = new List<string>();
-            var intakeQuery = from c in db.Cars
-                              join p in db.Parts
-                              on c.CarID equals p.CarID
-                              join i in db.Intakes
-                              on p.PartID equals i.PartID
-                              where c.CarID == id
-                              select i.IntakeName;
+            var intakeQuery = from c in db.Intakes
+                              where c.CarID == auto.CarID
+                              select c.IntakeName;
 
             intakeList.AddRange(intakeQuery);
             ViewBag.SelectListIntake = new SelectList(intakeList);
@@ -160,14 +157,11 @@ namespace PerformanceCarApp.Controllers
 
         public void PopulateBrakesDropDown(int? id)
         {
+            var auto = db.Cars.Find(id);
             var brakeList = new List<string>();
-            var brakeQuery = from c in db.Cars
-                             join p in db.Parts
-                             on c.CarID equals p.CarID
-                             join i in db.Brakes
-                             on p.PartID equals i.PartID
-                             where c.CarID == id
-                             select i.BrakeName;
+            var brakeQuery = from c in db.Brakes
+                             where c.CarID == auto.CarID
+                             select c.BrakeName;
 
             brakeList.AddRange(brakeQuery);
             ViewBag.SelectListBrakes = new SelectList(brakeList);
@@ -175,14 +169,11 @@ namespace PerformanceCarApp.Controllers
 
         public void PopulateEnginePartDropDown(int? id)
         {
+            var auto = db.Cars.Find(id);
             var enginePartList = new List<string>();
-            var enginePartQuery = from c in db.Cars
-                                  join p in db.Parts
-                                  on c.CarID equals p.CarID
-                                  join i in db.Brakes
-                                  on p.PartID equals i.PartID
-                                  where c.CarID == id
-                                  select i.BrakeName;
+            var enginePartQuery = from c in db.EngineParts
+                                  where c.CarID == auto.CarID
+                                  select c.EnginePartName;
 
             enginePartList.AddRange(enginePartQuery);
             ViewBag.SelectListEngineParts = new SelectList(enginePartList);
@@ -190,14 +181,11 @@ namespace PerformanceCarApp.Controllers
 
         public void PopulateExhaustDropDown(int? id)
         {
+            var auto = db.Cars.Find(id);
             var exhaustList = new List<string>();
-            var exhaustQuery = from c in db.Cars
-                               join p in db.Parts
-                               on c.CarID equals p.CarID
-                               join i in db.Intakes
-                               on p.PartID equals i.PartID
-                               where c.CarID == id
-                               select i.IntakeName;
+            var exhaustQuery = from c in db.Exhausts
+                               where c.CarID == auto.CarID
+                               select c.ExhaustName;
 
             exhaustList.AddRange(exhaustQuery);
             ViewBag.SelectListExhaust = new SelectList(exhaustList);
@@ -205,14 +193,11 @@ namespace PerformanceCarApp.Controllers
 
         public void PopulateSuspensionDropDown(int? id)
         {
+            var auto = db.Cars.Find(id);
             var suspensionList = new List<string>();
-            var suspensionQuery = from c in db.Cars
-                                  join p in db.Parts
-                                  on c.CarID equals p.CarID
-                                  join i in db.Intakes
-                                  on p.PartID equals i.PartID
-                                  where c.CarID == id
-                                  select i.IntakeName;
+            var suspensionQuery = from c in db.Suspensions
+                                  where c.CarID == auto.CarID
+                                  select c.SuspensionName;
 
             suspensionList.AddRange(suspensionQuery);
             ViewBag.SelectListSuspensions = new SelectList(suspensionList);

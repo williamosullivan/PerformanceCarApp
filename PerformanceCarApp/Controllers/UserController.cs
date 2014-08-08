@@ -18,7 +18,7 @@ namespace PerformanceCarApp.Controllers
         // GET: User
         public ActionResult Index()
         {
-            var users = db.Users.Include(u => u.UserCar);
+            var users = db.Users.Include(u => u.CarID);
             return View(users.ToList());
         }
 
@@ -134,7 +134,6 @@ namespace PerformanceCarApp.Controllers
         {
             var query = from u in db.Users
                              where u.UserEmail == email
-                             && u.UserPassword == password
                              select u;
             if (query != null)
             {

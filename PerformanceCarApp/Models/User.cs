@@ -11,15 +11,14 @@ namespace PerformanceCarApp.Models
     {
         [Key]
         public int UserID { get; set; }
+        public int CarID { get; set; }
+        [ForeignKey("CarID")]
+        public virtual Car Car { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public DateTime UserBirthday { get; set; }
         public string Gender { get; set; }
         public int Horsepower { get; set; }
         public double QuarterMile { get; set; }
-        
-        public int CarID { get; set; }
-        [ForeignKey("CarID")]
-        public virtual Car UserCar { get; set; }
     }
 }

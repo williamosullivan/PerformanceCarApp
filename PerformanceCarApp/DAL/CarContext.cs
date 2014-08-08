@@ -15,7 +15,6 @@ namespace PerformanceCarApp.DAL
         }
 
         public DbSet<Car> Cars { get; set; }
-        public DbSet<Part> Parts { get; set; }
         public DbSet<Exhaust> Exhausts { get; set; }
         public DbSet<Brakes> Brakes { get; set; }
         public DbSet<EnginePart> EngineParts { get; set; }
