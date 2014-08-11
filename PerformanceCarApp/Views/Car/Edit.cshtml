@@ -64,9 +64,9 @@
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     Projected Horsepower: @Html.TextBox("ProjectedHorsepower", (int)ViewBag.BHP)
     <br /><br />
-    Suspension Drop: @Html.TextBox("Drop")
+    Suspension Drop: @Html.TextBox("Drop", (int)ViewBag.SuspDrop)
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    Weight Saved: @Html.TextBox("Weight")
+    Weight Saved: @Html.TextBox("Weight", (int)ViewBag.Weight)
 </center>
 <div>
     @Html.ActionLink("Back to List", "Index")

@@ -281,7 +281,13 @@ namespace PerformanceCarApp.Controllers
             if (brake != null)
                 ViewBag.Weight = brake.BrakeWeightSave;
             else
-                ViewBag.Weight = 0;
+            {
+                Suspension suspension = db.Suspensions.Find(name);
+                if (suspension != null)
+                    ViewBag.Weight = suspension.SuspensionWeightSave;
+                else
+                    ViewBag.Weight = 0;
+            }
         }
 
         protected override void Dispose(bool disposing)
