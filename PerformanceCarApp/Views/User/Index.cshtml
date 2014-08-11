@@ -39,29 +39,29 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.TextBox((String)ViewBag.UserName)
+            @Html.TextArea((String)ViewBag.UserName)
         </td>
         <td>
-            @Html.TextBox((String)ViewBag.UserCarMake)
+            @Html.TextArea((String)ViewBag.UserCarMake)
         </td>
         <td>
-            @Html.TextBox((String)ViewBag.UserCarModel)
+            @Html.TextArea((String)ViewBag.UserCarModel)
         </td>
         <td>
-            @Html.TextBox((String)ViewBag.BDay)
+            @Html.TextArea((String)ViewBag.BDay)
         </td>
         <td>
-            @Html.TextBox((String)ViewBag.Gender)
+            @Html.TextArea((String)ViewBag.Gender)
         </td>
         <td>
-            @Html.TextBox((String)ViewBag.UserHP)
+            @Html.TextArea((String)ViewBag.UserHP)
         </td>
         <td>
-            @Html.TextBox((String)ViewBag.UserQM)
+            @Html.TextArea((String)ViewBag.UserQM)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserID }) |
+            @Html.ActionLink("View Profile", "Details", new { id=item.UserID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.UserID })
         </td>
     </tr>

@@ -18,19 +18,16 @@ namespace PerformanceCarApp.Controllers
         // GET: User
         public ActionResult Index()
         {
-            User user = db.Users.Find(ViewBag.Email);
-            if (user == null)
-            {
-                return RedirectToAction("Create");
-            }
-            else
+            string email = ViewBag.Email;
+            var query = from e in db.Users
+                        where e.UserEmail == email
+                        select e.UserID;
+
+            User user = db.Users.Find(email);
+            if (user != null)
             {
                 Car car = db.Cars.Find(user.CarID);
-                if (car == null)
-                {
-                    return RedirectToAction("Create", "Car", new { area = "Car" });
-                }
-                else
+                if (car != null)
                 {
                     ViewBag.UserCarMake = car.Make;
                     ViewBag.UserCarModel = car.Model;
@@ -39,11 +36,18 @@ namespace PerformanceCarApp.Controllers
                     ViewBag.UserQM = user.QuarterMile;
                     ViewBag.BDay = user.UserBirthday;
                     ViewBag.Gender = user.Gender;
-                    return View();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Create");
                 }
             }
+            else
+            {
+                return RedirectToAction("Create");
+            }
         }
-
         // GET: User/Details/5
         public ActionResult Details(int? id)
         {
@@ -56,7 +60,7 @@ namespace PerformanceCarApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return RedirectToAction("Index");
         }
 
         // GET: User/Create
@@ -81,7 +85,7 @@ namespace PerformanceCarApp.Controllers
             }
 
             ViewBag.CarID = new SelectList(db.Cars, "CarID", "Make", user.CarID);
-            return View(user);
+            return RedirectToAction("Index");
         }
 
         // GET: User/Edit/5
@@ -97,7 +101,7 @@ namespace PerformanceCarApp.Controllers
                 return HttpNotFound();
             }
             ViewBag.CarID = new SelectList(db.Cars, "CarID", "Make", user.CarID);
-            return View(user);
+            return RedirectToAction("Index");
         }
 
         // POST: User/Edit/5
@@ -114,7 +118,7 @@ namespace PerformanceCarApp.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CarID = new SelectList(db.Cars, "CarID", "Make", user.CarID);
-            return View(user);
+            return RedirectToAction("Index");
         }
 
         // GET: User/Delete/5
