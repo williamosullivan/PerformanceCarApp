@@ -61,19 +61,35 @@ namespace PerformanceCarApp.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.Email, model.Password);
-                ViewBag.Email = model.Email;
-                if (user != null)
+                ViewBag.Email = (string)model.Email;
+
+                User member = db.Users.Find(ViewBag.Email);
+                if (member != null)
                 {
-                    await SignInAsync(user, model.RememberMe);
-                    return RedirectToAction("Index", "User", new { area = "User" });
+                    Car car = db.Cars.Find(member.CarID);
+                    if (car != null)
+                    {
+                        ViewBag.UserCarMake = car.Make;
+                        ViewBag.UserCarModel = car.Model;
+                        ViewBag.UserName = member.UserName;
+                        ViewBag.UserHP = member.Horsepower;
+                        ViewBag.UserQM = member.QuarterMile;
+                        ViewBag.BDay = member.UserBirthday;
+                        ViewBag.Gender = member.Gender;
+                        return RedirectToAction("Index", "User", new { area = "User" });
+                    }
+                    else
+                    {
+                        return RedirectToAction("Register");
+                    }
                 }
                 else
                 {
                     ModelState.AddModelError("", "Invalid username or password.");
+                    return RedirectToAction("Register");
                 }
 
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }

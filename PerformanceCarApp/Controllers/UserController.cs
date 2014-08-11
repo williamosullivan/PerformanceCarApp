@@ -18,35 +18,7 @@ namespace PerformanceCarApp.Controllers
         // GET: User
         public ActionResult Index()
         {
-            string email = ViewBag.Email;
-            var query = from e in db.Users
-                        where e.UserEmail == email
-                        select e.UserID;
-
-            User user = db.Users.Find(email);
-            if (user != null)
-            {
-                Car car = db.Cars.Find(user.CarID);
-                if (car != null)
-                {
-                    ViewBag.UserCarMake = car.Make;
-                    ViewBag.UserCarModel = car.Model;
-                    ViewBag.UserName = user.UserName;
-                    ViewBag.UserHP = user.Horsepower;
-                    ViewBag.UserQM = user.QuarterMile;
-                    ViewBag.BDay = user.UserBirthday;
-                    ViewBag.Gender = user.Gender;
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    return RedirectToAction("Create");
-                }
-            }
-            else
-            {
-                return RedirectToAction("Create");
-            }
+            return View();   
         }
         // GET: User/Details/5
         public ActionResult Details(int? id)
