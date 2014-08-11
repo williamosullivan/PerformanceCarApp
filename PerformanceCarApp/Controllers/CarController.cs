@@ -95,6 +95,8 @@ namespace PerformanceCarApp.Controllers
             PopulateIntakeDropDown(id);
             PopulateSuspensionDropDown(id);
             PopulateBaseHorsepower(id);
+            ViewBag.Weight = 0;
+            ViewBag.SuspDrop = 0;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
