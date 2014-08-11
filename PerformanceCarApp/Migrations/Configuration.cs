@@ -46,7 +46,7 @@ namespace PerformanceCarApp.Migrations
                 new Exhaust{ExhaustID=8, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback", CarID = 8},
                 new Exhaust{ExhaustID=9, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback", CarID = 9},
                 new Exhaust{ExhaustID=10, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback", CarID = 10},
-                new Exhaust{ExhaustID=11, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback", CarID = 11}
+                new Exhaust{ExhaustID=11, ExhaustHPGain = 12, ExhaustName = "42 Draft Designs Turboback", CarID = 11},
             };
             exhausts.ForEach(s => context.Exhausts.AddOrUpdate(p => p.ExhaustID, s));
             context.SaveChanges();
@@ -63,7 +63,7 @@ namespace PerformanceCarApp.Migrations
                 new Brakes{BrakeID=19, BrakeWeightSave = 8, BrakeName = "Baer", CarID = 8},
                 new Brakes{BrakeID=20, BrakeWeightSave = 8, BrakeName = "Brembo", CarID = 9},
                 new Brakes{BrakeID=21, BrakeWeightSave = 8, BrakeName = "Brembo", CarID = 10},
-                new Brakes{BrakeID=22, BrakeWeightSave = 8, BrakeName = "Baer", CarID = 11}
+                new Brakes{BrakeID=22, BrakeWeightSave = 8, BrakeName = "Baer", CarID = 11},
             };
             brakes.ForEach(s => context.Brakes.AddOrUpdate(p => p.BrakeID, s));
             context.SaveChanges();
@@ -80,7 +80,7 @@ namespace PerformanceCarApp.Migrations
                 new EnginePart{EnginePartID=41, EnginePartHPGain = 65, EnginePartName = "APR ECU Chip", CarID = 8 },
                 new EnginePart{EnginePartID=42, EnginePartHPGain = 65, EnginePartName = "APR ECU Chip", CarID = 9 },
                 new EnginePart{EnginePartID=43, EnginePartHPGain = 65, EnginePartName = "APR ECU Chip", CarID = 10 },
-                new EnginePart{EnginePartID=44, EnginePartHPGain = 65, EnginePartName = "APR ECU Chip", CarID = 11 }
+                new EnginePart{EnginePartID=44, EnginePartHPGain = 65, EnginePartName = "APR ECU Chip", CarID = 11 },
             };
             engineParts.ForEach(s => context.EngineParts.AddOrUpdate(p => p.EnginePartID, s));
             context.SaveChanges();
@@ -97,7 +97,7 @@ namespace PerformanceCarApp.Migrations
                 new Intake{IntakeID=30, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake", CarID = 8 },
                 new Intake{IntakeID=31, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake", CarID = 9 },
                 new Intake{IntakeID=32, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake", CarID = 10 },
-                new Intake{IntakeID=33, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake", CarID = 11 },
+                new Intake{IntakeID=33, IntakeHPGain = 14, IntakeName = "CTS Turbo Cold Air Intake", CarID = 11 }
             };
             intakes.ForEach(s => context.Intakes.AddOrUpdate(p => p.IntakeID, s));
             context.SaveChanges();

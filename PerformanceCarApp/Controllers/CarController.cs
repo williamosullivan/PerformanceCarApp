@@ -147,11 +147,14 @@ namespace PerformanceCarApp.Controllers
         public void PopulateIntakeDropDown(int? id)
         {
             var auto = db.Cars.Find(id);
+            var stock = new Intake();
+            stock.IntakeName = "Stock";
+            stock.IntakeHPGain = 0;
             var intakeList = new List<string>();
             var intakeQuery = from c in db.Intakes
                               where c.CarID == auto.CarID
                               select c.IntakeName;
-
+            intakeList.Add(stock.IntakeName);
             intakeList.AddRange(intakeQuery);
             ViewBag.SelectListIntake = new SelectList(intakeList);
         }
@@ -159,11 +162,14 @@ namespace PerformanceCarApp.Controllers
         public void PopulateBrakesDropDown(int? id)
         {
             var auto = db.Cars.Find(id);
+            var stock = new Brakes();
+            stock.BrakeName = "Stock";
+            stock.BrakeWeightSave = 0;
             var brakeList = new List<string>();
             var brakeQuery = from c in db.Brakes
                              where c.CarID == auto.CarID
                              select c.BrakeName;
-
+            brakeList.Add(stock.BrakeName);
             brakeList.AddRange(brakeQuery);
             ViewBag.SelectListBrakes = new SelectList(brakeList);
         }
@@ -171,11 +177,14 @@ namespace PerformanceCarApp.Controllers
         public void PopulateEnginePartDropDown(int? id)
         {
             var auto = db.Cars.Find(id);
+            var stock = new EnginePart();
+            stock.EnginePartName = "Stock";
+            stock.EnginePartHPGain = 0;
             var enginePartList = new List<string>();
             var enginePartQuery = from c in db.EngineParts
                                   where c.CarID == auto.CarID
                                   select c.EnginePartName;
-
+            enginePartList.Add(stock.EnginePartName);
             enginePartList.AddRange(enginePartQuery);
             ViewBag.SelectListEngineParts = new SelectList(enginePartList);
         }
@@ -183,11 +192,14 @@ namespace PerformanceCarApp.Controllers
         public void PopulateExhaustDropDown(int? id)
         {
             var auto = db.Cars.Find(id);
+            var stock = new Exhaust();
+            stock.ExhaustName = "Stock";
+            stock.ExhaustHPGain = 0;
             var exhaustList = new List<string>();
             var exhaustQuery = from c in db.Exhausts
                                where c.CarID == auto.CarID
                                select c.ExhaustName;
-
+            exhaustList.Add(stock.ExhaustName);
             exhaustList.AddRange(exhaustQuery);
             ViewBag.SelectListExhaust = new SelectList(exhaustList);
         }
@@ -196,10 +208,14 @@ namespace PerformanceCarApp.Controllers
         {
             var auto = db.Cars.Find(id);
             var suspensionList = new List<string>();
+            var stock = new Suspension();
+            stock.SuspensionName = "Stock";
+            stock.SuspensionWeightSave = 0;
+            stock.SuspensionDrop = 0;
             var suspensionQuery = from c in db.Suspensions
                                   where c.CarID == auto.CarID
                                   select c.SuspensionName;
-
+            suspensionList.Add(stock.SuspensionName);
             suspensionList.AddRange(suspensionQuery);
             ViewBag.SelectListSuspensions = new SelectList(suspensionList);
         }
