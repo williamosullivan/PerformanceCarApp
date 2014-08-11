@@ -18,8 +18,30 @@ namespace PerformanceCarApp.Controllers
         // GET: User
         public ActionResult Index()
         {
-            var users = db.Users.Include(u => u.CarID);
-            return View(users.ToList());
+            User user = db.Users.Find(ViewBag.Email);
+            if (user == null)
+            {
+                return RedirectToAction("Create");
+            }
+            else
+            {
+                Car car = db.Cars.Find(user.CarID);
+                if (car == null)
+                {
+                    return RedirectToAction("Create", "Car", new { area = "Car" });
+                }
+                else
+                {
+                    ViewBag.UserCarMake = car.Make;
+                    ViewBag.UserCarModel = car.Model;
+                    ViewBag.UserName = user.UserName;
+                    ViewBag.UserHP = user.Horsepower;
+                    ViewBag.UserQM = user.QuarterMile;
+                    ViewBag.BDay = user.UserBirthday;
+                    ViewBag.Gender = user.Gender;
+                    return View();
+                }
+            }
         }
 
         // GET: User/Details/5
@@ -49,7 +71,7 @@ namespace PerformanceCarApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,UserName,UserEmail,UserPassword,UserBirthday,CarID")] User user)
+        public ActionResult Create([Bind(Include = "UserID,CarID,UserName,UserEmail,UserBirthday,Gender,Horsepower,QuarterMile")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +105,7 @@ namespace PerformanceCarApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserID,UserName,UserEmail,UserPassword,UserBirthday,CarID")] User user)
+        public ActionResult Edit([Bind(Include = "UserID,CarID,UserName,UserEmail,UserBirthday,Gender,Horsepower,QuarterMile")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -128,21 +150,6 @@ namespace PerformanceCarApp.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        public ActionResult Validate(string email, string password)
-        {
-            var query = from u in db.Users
-                             where u.UserEmail == email
-                             select u;
-            if (query != null)
-            {
-                return RedirectToAction("Welcome");
-            }
-            else
-            {
-                return View("NotFound");
-            }
         }
     }
 }

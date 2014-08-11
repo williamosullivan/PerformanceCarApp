@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Car.Make)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.Make)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.UserName)
         </dt>
 
@@ -27,19 +35,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UserCar.Make)
+            @Html.DisplayNameFor(model => model.UserBirthday)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UserCar.Make)
+            @Html.DisplayFor(model => model.UserBirthday)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UserCar.Model)
+            @Html.DisplayNameFor(model => model.Gender)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UserCar.Model)
+            @Html.DisplayFor(model => model.Gender)
         </dd>
 
         <dt>
@@ -56,14 +64,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.QuarterMile)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserBirthday)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserBirthday)
         </dd>
 
     </dl>

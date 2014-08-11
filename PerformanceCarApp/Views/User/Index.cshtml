@@ -4,17 +4,67 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Log In</h2>
-<br />
+<h2>Index</h2>
+
 <p>
-    @Html.ActionLink("Register", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
-<form>
-    <center>
-        Enter E-Mail: <input type="text" name="email" value="" />
-        <br />
-        Enter Password: <input type="password" name="password" value="" />
-        <br />
-        <button type="submit" name="submit" value="Submit" onclick="Validate(email, password)" />
-    </center>
-</form>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Make
+        </th>
+        <th>
+            Model
+        </th>
+        <th>
+        <th>
+            Birthday
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Horsepower
+        </th>
+        <th>
+            Quarter Mile
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.TextBox((String)ViewBag.UserName)
+        </td>
+        <td>
+            @Html.TextBox((String)ViewBag.UserCarMake)
+        </td>
+        <td>
+            @Html.TextBox((String)ViewBag.UserCarModel)
+        </td>
+        <td>
+            @Html.TextBox((String)ViewBag.BDay)
+        </td>
+        <td>
+            @Html.TextBox((String)ViewBag.Gender)
+        </td>
+        <td>
+            @Html.TextBox((String)ViewBag.UserHP)
+        </td>
+        <td>
+            @Html.TextBox((String)ViewBag.UserQM)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserID })
+        </td>
+    </tr>
+}
+
+</table>

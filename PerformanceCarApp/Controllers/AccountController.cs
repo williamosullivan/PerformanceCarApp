@@ -11,11 +11,14 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using PerformanceCarApp.Models;
+using PerformanceCarApp.DAL;
 
 namespace PerformanceCarApp.Controllers
 {
     public class AccountController : Controller
     {
+        private CarContext db = new CarContext();
+
         private ApplicationUserManager _userManager;
 
         public AccountController()
@@ -27,7 +30,8 @@ namespace PerformanceCarApp.Controllers
             UserManager = userManager;
         }
 
-        public ApplicationUserManager UserManager {
+        public ApplicationUserManager UserManager
+        {
             get
             {
                 return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -57,15 +61,17 @@ namespace PerformanceCarApp.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.Email, model.Password);
+                ViewBag.Email = model.Email;
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "User", new { area = "User" });
                 }
                 else
                 {
                     ModelState.AddModelError("", "Invalid username or password.");
                 }
+
             }
 
             // If we got this far, something failed, redisplay form
@@ -94,14 +100,14 @@ namespace PerformanceCarApp.Controllers
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
-
+                    ViewBag.UserEmail = user.Email;
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Create", "User", new { area = "User" });
                 }
                 else
                 {
@@ -118,7 +124,7 @@ namespace PerformanceCarApp.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
-            if (userId == null || code == null) 
+            if (userId == null || code == null)
             {
                 return View("Error");
             }
@@ -178,13 +184,13 @@ namespace PerformanceCarApp.Controllers
         {
             return View();
         }
-	
+
         //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
-            if (code == null) 
+            if (code == null)
             {
                 return View("Error");
             }
@@ -412,13 +418,13 @@ namespace PerformanceCarApp.Controllers
                     if (result.Succeeded)
                     {
                         await SignInAsync(user, isPersistent: false);
-                        
+
                         // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                         // Send an email with this link
                         // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                         // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                         // SendEmail(user.Email, callbackUrl, "Confirm your account", "Please confirm your account by clicking this link");
-                        
+
                         return RedirectToLocal(returnUrl);
                     }
                 }
@@ -528,7 +534,8 @@ namespace PerformanceCarApp.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
             {
             }
 
