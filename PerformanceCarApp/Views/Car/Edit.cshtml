@@ -17,7 +17,7 @@
         $('#EnginePartList').change(function () {
             var name2 = $('#EnginePartList').val();
             $.ajax({
-                url: '/CarController/PopulateProjectedHorsepower',
+                url: '/CarController/PopulateEnginePartHorsepower',
                 data: { a: name2 },
                 success: function (result) {
                 },
@@ -30,7 +30,7 @@
         $('#ExhaustList').change(function () {
             var name3 = $('#ExhaustList').val();
             $.ajax({
-                url: '/CarController/PopulateProjectedHorsepower',
+                url: '/CarController/PopulateExhaustHorsepower',
                 data: { a: name3 },
                 success: function (result) {
                 },

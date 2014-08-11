@@ -228,21 +228,28 @@ namespace PerformanceCarApp.Controllers
             if (intake != null)
                 ViewBag.HP += intake.IntakeHPGain;
             else
-            {
-                EnginePart ep = db.EngineParts.Find(name);
-                if (ep != null)
-                    ViewBag.HP += ep.EnginePartHPGain;
-                else
-                {
-                    Exhaust ex = db.Exhausts.Find(name);
-                    if (ex != null)
-                        ViewBag.HP += ex.ExhaustHPGain;
-                    else
-                        ViewBag.HP = ViewBag.HP;
-                }
-            }
+                ViewBag.HP = ViewBag.HP;
         }
 
+        public void PopulateEnginePartHP(string name)
+        {
+            EnginePart ep = db.EngineParts.Find(name);
+            if (ep != null)
+                ViewBag.HP += ep.EnginePartHPGain;
+            else
+                ViewBag.HP = ViewBag.HP;
+        }
+
+        public void PopulateExhaustHP(string name)
+        {
+            Exhaust ex = db.Exhausts.Find(name);
+              if (ex != null)
+                ViewBag.HP += ex.ExhaustHPGain;
+              else
+                 ViewBag.HP = ViewBag.HP;
+                
+        }
+    
         public void PopulateSuspensionDrop(string name)
         {
             Suspension sus = db.Suspensions.Find(name);
