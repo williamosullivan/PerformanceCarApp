@@ -277,19 +277,19 @@ namespace PerformanceCarApp.Controllers
                 ViewBag.SuspDrop = 0;
         }
 
-        public void PopulateWeightSave(string name)
+        public void PopulateWeightSave(string brake, string susp)
         {
-            Brakes brake = db.Brakes.Find(name);
-            if (brake != null)
-                ViewBag.Weight = brake.BrakeWeightSave;
+            var bw = db.Brakes.Find(brake);
+            if (bw == null)
+                ViewBag.Weight = 0;
             else
-            {
-                Suspension suspension = db.Suspensions.Find(name);
-                if (suspension != null)
-                    ViewBag.Weight = suspension.SuspensionWeightSave;
-                else
-                    ViewBag.Weight = 0;
-            }
+                ViewBag.Weight = bw.BrakeWeightSave;
+            var sus = db.Suspensions.Find(susp);
+            if (sus == null)
+                ViewBag.Weight += 0;
+            else
+                ViewBag.Weight += ViewBag.Weight;
+
         }
 
         protected override void Dispose(bool disposing)

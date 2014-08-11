@@ -1,9 +1,9 @@
 ﻿<script type="text/javascript">
     $(document).ready(function () {
-        $('#IntakeList').change(function () {
+        $('#SelectListIntake').change(function () {
             var name1 = $('#IntakeList').val();
             $.ajax({
-                url: '/CarController/PopulateProjectedHorsepower',
+                url: '/Controllers/CarController/PopulateProjectedHorsepower',
                 data: { a: name1 },
                 success: function (result) {
                 },
@@ -17,7 +17,7 @@
         $('#EnginePartList').change(function () {
             var name2 = $('#EnginePartList').val();
             $.ajax({
-                url: '/CarController/PopulateEnginePartHorsepower',
+                url: '/Controllers/CarController/PopulateEnginePartHorsepower',
                 data: { a: name2 },
                 success: function (result) {
                 },
@@ -30,7 +30,7 @@
         $('#ExhaustList').change(function () {
             var name3 = $('#ExhaustList').val();
             $.ajax({
-                url: '/CarController/PopulateExhaustHorsepower',
+                url: '/Controllers/CarController/PopulateExhaustHorsepower',
                 data: { a: name3 },
                 success: function (result) {
                 },
@@ -39,6 +39,13 @@
             });
         });
     });
+    function UpdateWeight() {
+        var current = document.getElementById("Weight");
+        var brake = document.getElementById("BrakesList");
+        var susp = document.getElementById("SuspensionList");
+        PopulateWeightSave(brake, susp);
+        document.getElementById("Weight").innerHTML = ViewBag.Weight;
+    }
 </script>
 @model PerformanceCarApp.Models.Car
 
@@ -53,8 +60,10 @@
     Select Intake:@Html.DropDownList("IntakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListIntake)
     Select Engine Part: @Html.DropDownList("EnginePartList", (IEnumerable<SelectListItem>)ViewBag.SelectListEngineParts)
     Select Exhaust: @Html.DropDownList("ExhaustList", (IEnumerable<SelectListItem>)ViewBag.SelectListExhaust)
-    Select Suspension: @Html.DropDownList("SuspensionList", (IEnumerable<SelectListItem>)ViewBag.SelectListSuspensions)
-    Select Brakes: @Html.DropDownList("BrakesList", (IEnumerable<SelectListItem>)ViewBag.SelectListBrakes)
+    <select name="carWeight" onchange="UpdateWeight()">
+        Select Suspension: @Html.DropDownList("SuspensionList", (IEnumerable<SelectListItem>)ViewBag.SelectListSuspensions)
+        Select Brakes: @Html.DropDownList("BrakesList", (IEnumerable<SelectListItem>)ViewBag.SelectListBrakes)
+    </select>
 </div>
 <center>
     <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=Performance%20car%20installation%20near%20detroit%2C%20mi&key=AIzaSyByZ4s3Qoh26h4_55WzfXWkW6ZyrFecrug"></iframe>
