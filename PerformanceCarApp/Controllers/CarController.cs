@@ -212,7 +212,6 @@ namespace PerformanceCarApp.Controllers
             var suspensionList = new List<string>();
             var stock = new Suspension();
             stock.SuspensionName = "Stock";
-            stock.SuspensionWeightSave = 0;
             stock.SuspensionDrop = 0;
             var suspensionQuery = from c in db.Suspensions
                                   where c.CarID == auto.CarID

@@ -15,7 +15,6 @@ namespace PerformanceCarApp.Models
         [ForeignKey("CarID")]
         public virtual Car Car { get; set; }
         public int SuspensionDrop { get; set; }
-        public int SuspensionWeightSave { get; set; }
         public string SuspensionName { get; set; }
     }
 }
