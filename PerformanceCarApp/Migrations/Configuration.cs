@@ -104,17 +104,17 @@ namespace PerformanceCarApp.Migrations
 
             var suspensions = new List<Suspension>
             {
-                new Suspension{SuspensionID = 45, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 1 },
-                new Suspension{SuspensionID = 46, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 2 },
-                new Suspension{SuspensionID = 47, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 3 },
-                new Suspension{SuspensionID = 48, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 4 },
-                new Suspension{SuspensionID = 49, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 5 },
-                new Suspension{SuspensionID = 50, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 6 },
-                new Suspension{SuspensionID = 51, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 7 },
-                new Suspension{SuspensionID = 52, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 8 },
-                new Suspension{SuspensionID = 53, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 9 },
-                new Suspension{SuspensionID = 54, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 10 },
-                new Suspension{SuspensionID = 55, SuspensionDrop = 2, SuspensionName = "KD Coilover", SuspensionWeightSave = 3, CarID = 11 }
+                new Suspension{SuspensionID = 45, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 1 },
+                new Suspension{SuspensionID = 46, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 2 },
+                new Suspension{SuspensionID = 47, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 3 },
+                new Suspension{SuspensionID = 48, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 4 },
+                new Suspension{SuspensionID = 49, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 5 },
+                new Suspension{SuspensionID = 50, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 6 },
+                new Suspension{SuspensionID = 51, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 7 },
+                new Suspension{SuspensionID = 52, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 8 },
+                new Suspension{SuspensionID = 53, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 9 },
+                new Suspension{SuspensionID = 54, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 10 },
+                new Suspension{SuspensionID = 55, SuspensionDrop = 2, SuspensionName = "KD Coilover", CarID = 11 }
             };
             suspensions.ForEach(s => context.Suspensions.AddOrUpdate(p => p.SuspensionID, s));
             context.SaveChanges();

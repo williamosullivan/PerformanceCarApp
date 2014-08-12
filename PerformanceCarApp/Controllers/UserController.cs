@@ -18,8 +18,8 @@ namespace PerformanceCarApp.Controllers
         // GET: User
         public ActionResult Index(Car car, User member)
         {
-            ViewBag.Make = car.Make;
-            ViewBag.Model = car.Model;
+            car = (Car)TempData["Car"];
+            member = (User)TempData["Member"];
             return View(member);
         }
         // GET: User/Details/5
@@ -38,10 +38,10 @@ namespace PerformanceCarApp.Controllers
         }
 
         // GET: User/Create
-        public ActionResult Create()
+        public ActionResult Create(User member)
         {
             ViewBag.CarID = new SelectList(db.Cars, "CarID", "Make");
-            return View();
+            return View(member);
         }
 
         // POST: User/Create

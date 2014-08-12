@@ -41,10 +41,10 @@
             @Html.DisplayFor(model => model.UserEmail)
         </td>
         <td>
-            @Html.TextArea((string)ViewBag.Make)
+            @Html.DisplayFor(model => model.Car.Make)
         </td>
         <td>
-            @Html.TextArea((string)ViewBag.Model)
+            @Html.DisplayFor(model => model.Car.Model)
         </td>
         <td>
             @Html.DisplayFor(model => model.UserBirthday)
@@ -59,9 +59,9 @@
             @Html.DisplayFor(model => model.QuarterMile)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=ViewBag.UserID }) |
+            @Html.ActionLink("Edit Profile", "Edit", new { id=ViewBag.UserID }) |
             @Html.ActionLink("View Profile", "Details", new { id=ViewBag.UserID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=ViewBag.UserID })
+            @Html.ActionLink("Deactivate Your Account", "Delete", new { id=ViewBag.UserID })
         </td>
     </tr>
 }

@@ -63,20 +63,21 @@ namespace PerformanceCarApp.Controllers
             {
                 var user = await UserManager.FindAsync(model.Email, model.Password);
 
-                var member = (from e in db.Users
+                User member = (from e in db.Users
                               where e.UserEmail == model.Email
                               select e).First();
-
+                (TempData["Member"]) = member;
                 if (member != null)
                 {
-                    Car car = db.Cars.Find(member);
+                    Car car = db.Cars.Find(member.CarID);
                     if (car != null)
                     {
+                        (TempData["Car"]) = car;
                         return RedirectToAction("Index", "User", new { area = "User", car, member});
                     }
                     else
                     {
-                        return RedirectToAction("Create", "User", new { area = "User",car });
+                        return RedirectToAction("Create", "User", new { area = "User", member });
                     }
                 }
                 else
