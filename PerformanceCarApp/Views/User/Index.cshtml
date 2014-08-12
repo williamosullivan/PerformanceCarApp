@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PerformanceCarApp.Models.User>
+﻿@model PerformanceCarApp.Models.User
 
 @{
     ViewBag.Title = "Index";
@@ -35,27 +35,28 @@
         </th>
         <th></th>
     </tr>
+
     <tr>
         <td>
-            @Html.TextArea((string)ViewBag.UserEmail)
+            @Html.DisplayFor(model => model.UserEmail)
         </td>
         <td>
-            @Html.TextArea((string)ViewBag.UserCarMake)
+            @Html.TextArea((string)ViewBag.Make)
         </td>
         <td>
-            @Html.TextArea((string)ViewBag.UserCarModel)
+            @Html.TextArea((string)ViewBag.Model)
         </td>
         <td>
-            @Html.TextArea((string)ViewBag.BDay)
+            @Html.DisplayFor(model => model.UserBirthday)
         </td>
         <td>
-            @Html.TextArea((string)ViewBag.Gender)
+            @Html.DisplayFor(model => model.Gender)
         </td>
         <td>
-            @Html.TextArea((string)ViewBag.UserHP)
+            @Html.DisplayFor(model => model.Horsepower)
         </td>
         <td>
-            @Html.TextArea((string)ViewBag.UserQM)
+            @Html.DisplayFor(model => model.QuarterMile)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=ViewBag.UserID }) |

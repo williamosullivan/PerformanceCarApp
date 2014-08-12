@@ -12,6 +12,7 @@ using Microsoft.Owin.Security;
 using Owin;
 using PerformanceCarApp.Models;
 using PerformanceCarApp.DAL;
+using System.Diagnostics;
 
 namespace PerformanceCarApp.Controllers
 {
@@ -61,32 +62,21 @@ namespace PerformanceCarApp.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.Email, model.Password);
-                ViewBag.Email = (string)model.Email;
-                string email = model.Email;
+
                 var member = (from e in db.Users
-                              where e.UserEmail == email
-                              select e).SingleOrDefault();
-                TempData["Person"] = (from c in db.Users
-                                    where c.UserEmail == email
-                                    select c.UserID).SingleOrDefault();
+                              where e.UserEmail == model.Email
+                              select e).First();
+
                 if (member != null)
                 {
-                    Car car = db.Cars.Find(member.CarID);
+                    Car car = db.Cars.Find(member);
                     if (car != null)
                     {
-                        ViewBag.UserCarMake = car.Make;
-                        ViewBag.UserCarModel = car.Model;
-                        ViewBag.UserName = member.UserName;
-                        ViewBag.UserHP = member.Horsepower;
-                        ViewBag.UserQM = member.QuarterMile;
-                        ViewBag.BDay = member.UserBirthday;
-                        ViewBag.Gender = member.Gender;
-                        ViewBag.UserID = member.UserID;
-                        return RedirectToAction("Index", "User", new { area = "User" });
+                        return RedirectToAction("Index", "User", new { area = "User", car, member});
                     }
                     else
                     {
-                        return RedirectToAction("Register");
+                        return RedirectToAction("Create", "User", new { area = "User",car });
                     }
                 }
                 else

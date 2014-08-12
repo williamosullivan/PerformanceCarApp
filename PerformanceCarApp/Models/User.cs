@@ -20,5 +20,6 @@ namespace PerformanceCarApp.Models
         public string Gender { get; set; }
         public int Horsepower { get; set; }
         public double QuarterMile { get; set; }
+        public string ImageURL { get; set; }
     }
 }

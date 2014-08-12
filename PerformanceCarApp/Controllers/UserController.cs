@@ -16,10 +16,11 @@ namespace PerformanceCarApp.Controllers
         private CarContext db = new CarContext();
 
         // GET: User
-        public ActionResult Index()
+        public ActionResult Index(Car car, User member)
         {
-            User user = db.Users.Find(TempData["Person"]);
-            return View();   
+            ViewBag.Make = car.Make;
+            ViewBag.Model = car.Model;
+            return View(member);
         }
         // GET: User/Details/5
         public ActionResult Details(int? id)
@@ -48,7 +49,7 @@ namespace PerformanceCarApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,CarID,UserName,UserEmail,UserBirthday,Gender,Horsepower,QuarterMile")] User user)
+        public ActionResult Create([Bind(Include = "UserID,CarID,UserName,UserEmail,UserBirthday,Gender,Horsepower,QuarterMile")] User user, Car car)
         {
             if (ModelState.IsValid)
             {
