@@ -11,8 +11,20 @@
     
   
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            $("button").dblclick(function(){
+
+            $("#garage").slideUp("slow");
+            })
+        })
+    </script>
+
 </head>
 <body>
+    <button>Double Click to Open</button>
+    <img id="garage" src="~/Images/reddoor1edited.jpg" style="background-size:cover"/>
 
     <div class="fb-like"
          data-send="true"
@@ -51,22 +63,7 @@
             
         </div>
     </div>
-    <div id="Click Here">Double Click to Open Door </div>
-    <img id="garage" src="~/Images/red_garage_door.jpg" width="750" height="750" />
-   
     
-    <script>
-
-        $(document).dblclick(function () {
-            if ($("#garage:first").is(":hidden")) {
-                $('#garage').show("slow");
-            }
-
-            else {
-                $('#garage').slideToggle();
-            }
-        })
-    </script>
 
 
 
