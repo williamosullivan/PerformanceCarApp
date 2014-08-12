@@ -23,11 +23,14 @@ namespace PerformanceCarApp.Controllers
             ViewBag.MakeSortParm = sortOrder == "Make" ? "make_desc" : "Make";
             var cars = from c in db.Cars
                        select c;
+            if (!String.IsNullOrEmpty(searchString))
+            {
 
-            cars = cars.Where(c => c.Model.ToUpper().Contains(searchString.ToUpper())
-            || c.Make.ToUpper().Contains(searchString.ToUpper()) || c.Generation.ToUpper().
-            Contains(searchString.ToUpper()) || c.Drivetrain.ToUpper().Contains(searchString.ToUpper()) ||
-            c.EngineSize.ToUpper().Contains(searchString.ToUpper()));
+                cars = cars.Where(c => c.Model.ToUpper().Contains(searchString.ToUpper())
+                || c.Make.ToUpper().Contains(searchString.ToUpper()) || c.Generation.ToUpper().
+                Contains(searchString.ToUpper()) || c.Drivetrain.ToUpper().Contains(searchString.ToUpper()) ||
+                c.EngineSize.ToUpper().Contains(searchString.ToUpper()));
+            }
 
             switch (sortOrder)
             {
