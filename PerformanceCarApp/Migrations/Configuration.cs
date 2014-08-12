@@ -11,7 +11,7 @@ namespace PerformanceCarApp.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(PerformanceCarApp.DAL.CarContext context)
@@ -121,7 +121,7 @@ namespace PerformanceCarApp.Migrations
 
             var members = new List<User>
             {
-                new User{UserID = 1, UserName = "Bill O'Sullivan", UserEmail = "williamosullivan@gmail.com", UserBirthday = DateTime.Parse("7/23/1981"), Gender = "M", CarID = 1, Horsepower = 300, QuarterMile = 13.2}
+                new User{UserID = 1, UserName = "Bill O'Sullivan", UserEmail = "williamosullivan@gmail.com", UserBirthday = DateTime.Parse("7/23/1981"), Gender = "M", CarID = 1, Horsepower = 300, QuarterMile = 13.2, ImageURL = " "}
             };
             members.ForEach(s => context.Users.AddOrUpdate(p => p.UserName, s));
             context.SaveChanges();

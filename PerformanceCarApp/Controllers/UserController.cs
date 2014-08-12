@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using PerformanceCarApp.DAL;
 using PerformanceCarApp.Models;
+using System.IO;
 
 namespace PerformanceCarApp.Controllers
 {
@@ -50,7 +51,7 @@ namespace PerformanceCarApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,CarID,UserName,UserEmail,UserBirthday,Gender,Horsepower,QuarterMile")] User user, Car car)
+        public ActionResult Create([Bind(Include = "UserID,CarID,UserName,UserEmail,UserBirthday,Gender,Horsepower,QuarterMile, ImageURL")] User user, Car car)
         {
             if (ModelState.IsValid)
             {
@@ -67,22 +68,22 @@ namespace PerformanceCarApp.Controllers
         public ActionResult Edit(int? id)
         {
             User person = (from u in db.Users
-                       where u.UserID == id
-                       select u).First();
+                           where u.UserID == id
+                           select u).First();
             (TempData["Member"]) = person;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             if (person == null)
             {
                 return HttpNotFound();
             }
             ViewBag.CarID = new SelectList(db.Cars, "CarID", "Make");
             Car car = (from c in db.Cars
-                           where c.CarID == id
-                           select c).First();
+                       where c.CarID == id
+                       select c).First();
             return View(person);
         }
 
@@ -91,13 +92,28 @@ namespace PerformanceCarApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserID,CarID,UserName,UserEmail,UserBirthday,Gender,Horsepower,QuarterMile")] User user)
+        public ActionResult Edit([Bind(Include = "UserID,CarID,UserName,UserEmail,UserBirthday,Gender,Horsepower,QuarterMile, ImageURL")] User user, HttpPostedFileBase file)
         {
+            if (file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                file.SaveAs(path);
+                User person = (User)(TempData["Member"]);                
+                person.ImageURL = path;
+                user.ImageURL = person.ImageURL;
+                db.Entry(user.ImageURL).State = EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.Message = "Upload successful";
+                return RedirectToAction("Index", person);
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                User person = (User)(TempData["Member"]);
+                return RedirectToAction("Index", person);
             }
             ViewBag.UserID = new SelectList(db.Cars, "CarID", "CarMake", user.CarID);
             return RedirectToAction("Index");
