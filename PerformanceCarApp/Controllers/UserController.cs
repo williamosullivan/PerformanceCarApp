@@ -36,7 +36,7 @@ namespace PerformanceCarApp.Controllers
             {
                 return HttpNotFound();
             }
-            return RedirectToAction("Index");
+            return View(user);
         }
 
         // GET: User/Create
