@@ -22,6 +22,7 @@ namespace PerformanceCarApp.Controllers
             car = (Car)TempData["Car"];
             member = (User)TempData["Member"];
             ViewBag.UserID = member.UserID;
+            ViewBag.URL = member.ImageURL;
             return View(member);
         }
         // GET: User/Details/5
@@ -156,6 +157,11 @@ namespace PerformanceCarApp.Controllers
                 ViewBag.Message = "Upload failed";
                 return RedirectToAction("Upload");
             }
+        }
+
+        public ActionResult Chat()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)

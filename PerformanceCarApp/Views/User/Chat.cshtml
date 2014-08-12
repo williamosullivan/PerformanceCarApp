@@ -1,13 +1,17 @@
 ﻿@{
     ViewBag.Title = "Chat";
 }
-<h2>Chat</h2>
-<div class="container">
-    <input type="text" id="message" />
-    <input type="button" id="sendmessage" value="Send" />
-    <input type="hidden" id="displayname" />
-    <ul id="discussion"></ul>
-</div>
+<br /><br /><br /><br />
+<h2>Performance Car Chat</h2>
+<br /><br /><br /><br />
+<center>
+    <div class="container">
+        <input type="text" id="message" />
+        <input type="button" id="sendmessage" value="Send" />
+        <input type="hidden" id="displayname" />
+        <ul id="discussion"></ul>
+    </div>
+</center>
 @section scripts {
     <script src="~/Scripts/jquery.signalR-2.1.0.min.js"></script>
     <script src="~/signalr/hubs"></script>
