@@ -145,6 +145,7 @@ namespace PerformanceCarApp.Controllers
                 var fileName = Path.GetFileName(file.FileName);
                 var path = Path.Combine(Server.MapPath("~/Images"), fileName);
                 file.SaveAs(path);
+                path = Path.Combine("/Images/", fileName);
                 User user = (User)(TempData["Member"]);
                 user.ImageURL = path;
                 db.Entry(user).State = EntityState.Modified;
