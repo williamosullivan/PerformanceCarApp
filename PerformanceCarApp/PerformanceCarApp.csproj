@@ -225,6 +225,7 @@
     <Content Include="Images\ford_fusion.png" />
     <Content Include="Images\ford_mustang.png" />
     <Content Include="Images\gmc_typhoon.png" />
+    <Content Include="Images\reddoor1.jpg" />
     <Content Include="Images\vw_golf.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

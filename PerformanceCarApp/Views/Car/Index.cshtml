@@ -5,24 +5,23 @@
 }
 <link rel="stylesheet" type="text/css" href="~/Content/style.css">
 
-
-<h2>Car Index</h2>
-<br /><br />
-@Html.ActionLink("CarIndex", "Index", new { sortOrder = ViewBag.NameSortParm })
-<br /><br />
-<center>
-    <h2>Build Your Ride!</h2>
-    <br /><br />
-    @using (Html.BeginForm())
+    <h2>Car Index</h2>
+    <br ><br />
+    @Html.ActionLink("CarIndex", "Index", new { sortOrder = ViewBag.NameSortParm })
+    <br ><br />
+    <center>
+        <h2>Build Your Ride!</h2>
+        <br><br />
+        @using (Html.BeginForm())
     {
         <p>
-            Find by Make, Model, Generation, Drivetrain, or Engine Size:
-            <br /><br />
-            @Html.TextBox("SearchString")
-            <input type="submit" value="Search" />
-        </p>
+                Find by Make, Model, Generation, Drivetrain, or Engine Size:
+        <br ><br />
+        @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
     }
-    <br /><br />
+<br><br />
 </center>
 
 <table class="table">
