@@ -18,6 +18,7 @@ namespace PerformanceCarApp.Controllers
         // GET: User
         public ActionResult Index()
         {
+            User user = db.Users.Find(TempData["Person"]);
             return View();   
         }
         // GET: User/Details/5

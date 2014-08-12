@@ -35,34 +35,32 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
     <tr>
         <td>
-            @Html.TextArea((String)ViewBag.UserName)
+            @Html.TextArea((string)ViewBag.UserName)
         </td>
         <td>
-            @Html.TextArea((String)ViewBag.UserCarMake)
+            @Html.TextArea((string)ViewBag.UserCarMake)
         </td>
         <td>
-            @Html.TextArea((String)ViewBag.UserCarModel)
+            @Html.TextArea((string)ViewBag.UserCarModel)
         </td>
         <td>
-            @Html.TextArea((String)ViewBag.BDay)
+            @Html.TextArea((string)ViewBag.BDay)
         </td>
         <td>
-            @Html.TextArea((String)ViewBag.Gender)
+            @Html.TextArea((string)ViewBag.Gender)
         </td>
         <td>
-            @Html.TextArea((String)ViewBag.UserHP)
+            @Html.TextArea((string)ViewBag.UserHP)
         </td>
         <td>
-            @Html.TextArea((String)ViewBag.UserQM)
+            @Html.TextArea((string)ViewBag.UserQM)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
-            @Html.ActionLink("View Profile", "Details", new { id=item.UserID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserID })
+            @Html.ActionLink("Edit", "Edit", new { id=ViewBag.UserID }) |
+            @Html.ActionLink("View Profile", "Details", new { id=ViewBag.UserID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=ViewBag.UserID })
         </td>
     </tr>
 }
