@@ -70,6 +70,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -188,6 +194,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Migrations\201408081813335_InitialCreate.cs" />
     <Compile Include="Migrations\201408081813335_InitialCreate.Designer.cs">
       <DependentUpon>201408081813335_InitialCreate.cs</DependentUpon>
@@ -244,6 +251,8 @@
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -320,6 +329,7 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Home\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
