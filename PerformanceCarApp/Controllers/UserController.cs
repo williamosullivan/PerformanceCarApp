@@ -20,6 +20,7 @@ namespace PerformanceCarApp.Controllers
         {
             car = (Car)TempData["Car"];
             member = (User)TempData["Member"];
+            ViewBag.UserID = member.UserID;
             return View(member);
         }
         // GET: User/Details/5
@@ -65,17 +66,24 @@ namespace PerformanceCarApp.Controllers
         // GET: User/Edit/5
         public ActionResult Edit(int? id)
         {
+            User person = (from u in db.Users
+                       where u.UserID == id
+                       select u).First();
+            (TempData["Member"]) = person;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            
+            if (person == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CarID = new SelectList(db.Cars, "CarID", "Make", user.CarID);
-            return RedirectToAction("Index");
+            ViewBag.CarID = new SelectList(db.Cars, "CarID", "Make");
+            Car car = (from c in db.Cars
+                           where c.CarID == id
+                           select c).First();
+            return View(person);
         }
 
         // POST: User/Edit/5
@@ -91,7 +99,7 @@ namespace PerformanceCarApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CarID = new SelectList(db.Cars, "CarID", "Make", user.CarID);
+            ViewBag.UserID = new SelectList(db.Cars, "CarID", "CarMake", user.CarID);
             return RedirectToAction("Index");
         }
 
