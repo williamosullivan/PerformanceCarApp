@@ -94,27 +94,13 @@ namespace PerformanceCarApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "UserID,CarID,UserName,UserEmail,UserBirthday,Gender,Horsepower,QuarterMile, ImageURL")] User user, HttpPostedFileBase file)
         {
-            if (file.ContentLength > 0)
-            {
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/Images"), fileName);
-                file.SaveAs(path);
-                User person = (User)(TempData["Member"]);                
-                person.ImageURL = path;
-                user.ImageURL = person.ImageURL;
-                db.Entry(user.ImageURL).State = EntityState.Modified;
-                db.SaveChanges();
-                ViewBag.Message = "Upload successful";
-                return RedirectToAction("Index", person);
-            }
-
             if (ModelState.IsValid)
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                User person = (User)(TempData["Member"]);
-                return RedirectToAction("Index", person);
+                return RedirectToAction("Index", user);
             }
+
             ViewBag.UserID = new SelectList(db.Cars, "CarID", "CarMake", user.CarID);
             return RedirectToAction("Index");
         }
@@ -143,6 +129,33 @@ namespace PerformanceCarApp.Controllers
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+            if (file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                file.SaveAs(path);
+                User user = (User)(TempData["Member"]);
+                user.ImageURL = path;
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.Message = "Upload successful";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Message = "Upload failed";
+                return RedirectToAction("Upload");
+            }
         }
 
         protected override void Dispose(bool disposing)

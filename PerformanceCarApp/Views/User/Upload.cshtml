@@ -1,0 +1,36 @@
+﻿@{  WebImage photo = null;
+  var newFileName = "";
+  var imagePath = "";
+
+  if (IsPost)
+  {
+      photo = WebImage.GetImageFromRequest();
+      if (photo != null)
+      {
+          newFileName = Guid.NewGuid().ToString() + "_" +
+              Path.GetFileName(photo.FileName);
+          imagePath = @"images\" + newFileName;
+
+          photo.Save(@"~\" + imagePath);
+      }
+  }
+}
+
+@model PerformanceCarApp.Models.User
+@{
+    ViewBag.Title = "Upload";
+}
+
+<h2>Upload a new Image</h2>
+<br /><br />
+    @using (Html.BeginForm("Upload", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    { @Html.AntiForgeryToken()
+        <center>
+            <fieldset>
+                <legend>Upload a file</legend>
+                <div class="editor-field">
+                    @Html.TextBox("file", "", new { type = "file" })
+                </div>
+                <div class="editor-field"> <input type="submit" value="Upload" /> </div>
+            </fieldset>
+        </center> }
