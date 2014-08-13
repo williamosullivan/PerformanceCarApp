@@ -90,7 +90,7 @@ namespace PerformanceCarApp.Controllers
 
         // GET: Car/Edit/5
 
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, FormCollection form)
         {
             Car car = db.Cars.Find(id);
             (TempData["Car"]) = car;
@@ -102,11 +102,12 @@ namespace PerformanceCarApp.Controllers
             PopulateBaseHorsepower(id);
             ViewBag.Weight = 0;
             ViewBag.SuspDrop = 0;
+            ViewBag.HP = car.BaseHorsepower;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Car car = new Car();
+
             if (car == null)
             {
                 return HttpNotFound();
@@ -119,9 +120,9 @@ namespace PerformanceCarApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CarID,Make,Model,Generation,Drivetrain,BodyStyle,BaseHorsepower,EngineSize,Trim")] Car car, string? intake, string? exhaust, string? enginePart, string? brakes, string? suspension)
+        public ActionResult Edit(FormCollection form)
         {
-            car = (Car)(TempData["Car"]);
+            Car car = (Car)(TempData["Car"]);
             PopulateBrakesDropDown(car.CarID);
             PopulateEnginePartDropDown(car.CarID);
             PopulateExhaustDropDown(car.CarID);
@@ -129,29 +130,48 @@ namespace PerformanceCarApp.Controllers
             PopulateSuspensionDropDown(car.CarID);
             PopulateBaseHorsepower(car.CarID);
             ViewBag.HP = car.BaseHorsepower;
+            string intakeName = (form["IntakeList"]).ToString();
+            Intake intake = (from i in db.Intakes
+                            where i.IntakeName == intakeName
+                            select i).First();
             if (intake != null)
             {
-                Intake intak = db.Intakes.Find(intake);
-                ViewBag.HP += intak.IntakeHPGain;
+                ViewBag.HP += intake.IntakeHPGain;
             }
+            string exhaustName = (form["ExhaustList"]).ToString();
+            Exhaust exhaust = (from d in db.Exhausts
+                              where d.ExhaustName == exhaustName
+                              select d).First();
             if (exhaust != null)
             {
-                Exhaust ex = db.Exhausts.Find(exhaust);
-                ViewBag.HP += ex.ExhaustHPGain;
+                ViewBag.HP += exhaust.ExhaustHPGain;
             }
+            string enginePartName = (form["EnginePartList"]).ToString();
+            EnginePart enginePart = (from e in db.EngineParts
+                                    where e.EnginePartName == enginePartName
+                                    select e).First();
             if (enginePart != null)
             {
-                EnginePart ep = db.EngineParts.Find(enginePart);
-                ViewBag.HP += ep.EnginePartHPGain
+                ViewBag.HP += enginePart.EnginePartHPGain;
             }
             ViewBag.Weight = 0;
-            Brakes brake = db.Brakes.Find(brakes);
+            string brakes = (form["BrakesList"]).ToString();
+            Brakes brake = (from b in db.Brakes
+                            where b.BrakeName == brakes
+                            select b).First();
             if (brake != null)
-                ViewBag.Weight += brake.BrakeWeightSave;
+                ViewBag.Weight = brake.BrakeWeightSave;
+            else
+                ViewBag.Weight = 0;
             ViewBag.Drop = 0;
-            Suspension susp = db.Suspensions.Find(suspension);
+            string suspension = (form["SuspensionList"]).ToString();
+            Suspension susp = (from s in db.Suspensions
+                               where s.SuspensionName == suspension
+                               select s).First();
             if (susp != null)
-                ViewBag.Drop += susp.SuspensionDrop;
+                ViewBag.SuspDrop = susp.SuspensionDrop;
+            else
+                ViewBag.SuspDrop = 0;
             return View(car);
         }
 
