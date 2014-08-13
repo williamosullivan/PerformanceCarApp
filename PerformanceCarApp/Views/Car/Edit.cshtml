@@ -45,6 +45,13 @@
         var susp = document.getElementById("SuspensionList");
 
     }
+    $('#HP').on('change', function (e) {
+        e.preventDefault();
+        var details = $('#HP').serialize();
+        $.post('#edit.cshtml', details, function (data) {
+            $('#edit').html(data);
+        });
+    });
 </script>
 @model PerformanceCarApp.Models.Car
 
@@ -56,13 +63,15 @@
 
 <div>
     <br /><br /><br /><br />
-    Select Intake:@Html.DropDownList("IntakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListIntake)
-    Select Engine Part: @Html.DropDownList("EnginePartList", (IEnumerable<SelectListItem>)ViewBag.SelectListEngineParts)
-    Select Exhaust: @Html.DropDownList("ExhaustList", (IEnumerable<SelectListItem>)ViewBag.SelectListExhaust)
-    <select name="carWeight" onchange="UpdateWeight()">
+    <form id="HP" action="Edit.cshtml" method="post">
+        Select Intake:@Html.DropDownList("IntakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListIntake)
+        Select Engine Part: @Html.DropDownList("EnginePartList", (IEnumerable<SelectListItem>)ViewBag.SelectListEngineParts)
+        Select Exhaust: @Html.DropDownList("ExhaustList", (IEnumerable<SelectListItem>)ViewBag.SelectListExhaust)
+    </form>
+    <form name="Weight" action="Edit.cshtml" method="post">
         Select Suspension: @Html.DropDownList("SuspensionList", (IEnumerable<SelectListItem>)ViewBag.SelectListSuspensions)
         Select Brakes: @Html.DropDownList("BrakesList", (IEnumerable<SelectListItem>)ViewBag.SelectListBrakes)
-    </select>
+    </form>
 </div>
 <center>
     <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=Performance%20car%20installation%20near%20detroit%2C%20mi&key=AIzaSyByZ4s3Qoh26h4_55WzfXWkW6ZyrFecrug"></iframe>
