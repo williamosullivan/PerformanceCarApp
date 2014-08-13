@@ -223,6 +223,7 @@
     <Content Include="Content\Style.css" />
     <Content Include="Content\HomeStyle.css" />
     <Content Include="Images\background4.jpg" />
+    <Content Include="Images\background5.jpg" />
     <Content Include="Images\carbackground.jpg" />
     <Content Include="Images\car_background3.jpg" />
     <Content Include="Images\challenger.jpg" />
