@@ -222,6 +222,9 @@
     <Content Include="Content\Images\linkedin-lg.png" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\HomeStyle.css" />
+    <Content Include="Images\background4.jpg" />
+    <Content Include="Images\carbackground.jpg" />
+    <Content Include="Images\car_background3.jpg" />
     <Content Include="Images\challenger.jpg" />
     <Content Include="Images\chevy_camero.png" />
     <Content Include="Images\chevy_corvette.png" />
