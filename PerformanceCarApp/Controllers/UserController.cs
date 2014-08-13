@@ -165,6 +165,15 @@ namespace PerformanceCarApp.Controllers
             return View();
         }
 
+        public ActionResult Gallery()
+        {
+            var userQuery = from u in db.Users
+                            select u;
+            var userList = new List<User>();
+            userList.AddRange(userQuery);
+            return View(userList);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PerformanceCarApp.Models.User>
+
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<h2>Gallery</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            User
+        </th>
+        <th>
+            Make
+        </th>
+        <th>
+            Model
+        </th>
+        <th>
+            Picture
+        </th>
+        <th>
+            Horsepower
+        </th>
+        <th>
+            Quarter Mile Time
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.Model)
+            </td>
+            <td>
+                <img src="@Model.item.ImageURL" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Horsepower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuarterMile)
+            </td>
+        </tr>
+    }
+
+</table>
