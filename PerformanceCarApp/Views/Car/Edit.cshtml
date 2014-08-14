@@ -15,26 +15,65 @@
     ViewBag.Title = "Edit";
 }
 <link rel="stylesheet" type="text/css" href="~/Content/style.css">
-<h2>Edit</h2>
+<link rel="stylesheet" type="text/css" href="~/Content/Profile.css">
+<h2>Build Your Ride!</h2>
 @using (Html.BeginForm("Edit", "Car"))
 {
     @Html.AntiForgeryToken()
     <div>
-        <br /><br /><br /><br />
+        <br /><br />
         <fieldset>
             <form id="HP">
-                Select Intake:@Html.DropDownList("IntakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListIntake)
-                Select Engine Part: @Html.DropDownList("EnginePartList", (IEnumerable<SelectListItem>)ViewBag.SelectListEngineParts)
-                Select Exhaust: @Html.DropDownList("ExhaustList", (IEnumerable<SelectListItem>)ViewBag.SelectListExhaust)
-                Select Suspension: @Html.DropDownList("SuspensionList", (IEnumerable<SelectListItem>)ViewBag.SelectListSuspensions)
-                Select Brakes: @Html.DropDownList("BrakesList", (IEnumerable<SelectListItem>)ViewBag.SelectListBrakes)
-                <input type="submit" value="Calculate" onclick="HP();" />
+                <center>
+                    <div id="columnA">
+                        <strong>
+                            Intake:
+                        </strong>
+                        @Html.DropDownList("IntakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListIntake)
+                        <img src="~/Content/intake.jpg" width="160" height="120" />
+                        <strong>
+                            Suspension:
+                        </strong>
+                        @Html.DropDownList("SuspensionList", (IEnumerable<SelectListItem>)ViewBag.SelectListSuspensions)
+                        <img src="~/Content/suspension.jpg" width="160" height="120" />
+                        <br />
+                    </div>
+                </center>
+                <center>
+                    <br />
+                    <div id="columnB">
+                        <strong>
+                            Engine Part:
+                        </strong>
+                        @Html.DropDownList("EnginePartList", (IEnumerable<SelectListItem>)ViewBag.SelectListEngineParts)
+                        <img src="~/Content/enginepart.jpg" width="160" height="120" />
+                    </div>
+                    <br />
+                </center>
+                <center>
+                    <div id="columnC">
+                        <strong>
+                            Exhaust:
+                        </strong>
+                        @Html.DropDownList("ExhaustList", (IEnumerable<SelectListItem>)ViewBag.SelectListExhaust)
+                        <img src="~/Content/exhaust.gif" width="160" height="120" />
+                        <strong>
+                            Brakes:
+                        </strong>
+                        @Html.DropDownList("BrakesList", (IEnumerable<SelectListItem>)ViewBag.SelectListBrakes)
+                        <img src="~/Content/brakes.jpg" width="160" height="120" />
+                        <br />
+                    </div>
+                </center>
+                <center>
+                    <div id="subbutton">
+                        <input type="submit" value="Calculate" onclick="HP();" />
+                    </div>
+                </center>
             </form>
         </fieldset>
     </div>
-    <center>
-        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=Performance%20car%20installation%20near%20detroit%2C%20mi&key=AIzaSyByZ4s3Qoh26h4_55WzfXWkW6ZyrFecrug"></iframe>
-    </center>
+
     <center>
         Base Horsepower: @Html.TextBox("BaseHorsepower", (int)ViewBag.BHP)
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
