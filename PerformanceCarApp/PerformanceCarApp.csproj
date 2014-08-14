@@ -221,6 +221,7 @@
     <Content Include="Content\Images\google-plus-lg.png" />
     <Content Include="Content\Images\linkedin-lg.png" />
     <Content Include="Content\jq_slider.css" />
+    <Content Include="Content\Profile.css" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\HomeStyle.css" />
     <Content Include="Images\background4.jpg" />
@@ -338,6 +339,7 @@
     <Content Include="Views\User\Chat.cshtml" />
     <Content Include="Views\User\Upload.cshtml" />
     <Content Include="Views\User\Gallery.cshtml" />
+    <Content Include="Views\Home\Intro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace PerformanceCarApp.Controllers
 {
-     [Authorize] 
     [RequireHttps]
     public class HomeController : Controller
     {
@@ -30,6 +29,11 @@ namespace PerformanceCarApp.Controllers
         }
 
         public ActionResult Chat()
+        {
+            return View();
+        }
+
+        public ActionResult Intro()
         {
             return View();
         }
