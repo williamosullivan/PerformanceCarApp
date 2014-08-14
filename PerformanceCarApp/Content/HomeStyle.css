@@ -1,6 +1,10 @@
 ﻿body {
     background-image:url(../Images/background5.jpg);
-    background-repeat:no-repeat;
+    background-repeat: repeat;
     background-attachment:scroll;
     background-size: cover;  
     }
+#navbar {
+    height: 100px;
+    width: 100%;
+}
