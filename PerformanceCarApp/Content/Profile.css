@@ -1,0 +1,60 @@
+﻿body {
+    font-family: Georgia, 'Times New Roman', serif;
+}
+#Pic{
+
+}
+#UserName{
+    color: #bd0505;
+    font-weight: bold;
+}
+#Make{
+    color: #000000;
+    font-weight: bold;
+}
+#Model{
+    color: #000000;
+    font-weight: bold;
+}
+#Birthday{
+    color: #000000;
+    font-weight: bold;
+}
+#Gender{
+    color: #000000;
+    font-weight: bold;
+}
+#Horsepower{
+    color: #000000;
+    font-weight: bold;
+}
+#QM{
+    color: #000000;
+    font-weight: bold;
+}
+#Verified{
+    color: #000000;
+    font-weight: bold;
+}
+#HCB_comment_box{
+    font-weight: bold;
+}
+.leftside{
+    float: left;
+}
+.rightside{
+    color: black;
+    background-color: rgba(247, 244, 240, 0.75)
+}
+img.align-left{
+    float:left;
+    margin-right: 10px;
+}
+img.large {
+    width: 512px;
+    height: 288px;
+}
+.description{
+    color: #130e87;
+    font-weight: bold;
+}
