@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace PerformanceCarApp.Controllers
 {
-     [Authorize] 
     [RequireHttps]
     public class HomeController : Controller
     {
