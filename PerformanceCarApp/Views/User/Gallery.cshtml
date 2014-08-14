@@ -44,6 +44,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.QuarterMile)
             </td>
+            <td>
+                @Html.ActionLink("Check it out!", "Details", new { id = item.UserID })
+            </td>
         </tr>
     }
 
