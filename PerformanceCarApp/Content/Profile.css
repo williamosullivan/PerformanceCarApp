@@ -7,6 +7,7 @@
 #UserName{
     color: #bd0505;
     font-weight: bold;
+    font-size: 20px;
 }
 #Make{
     color: #000000;
@@ -57,4 +58,27 @@ img.large {
 .description{
     color: #130e87;
     font-weight: bold;
+}
+.gmap{
+    float: left;
+}
+.columnA {
+    float: left;
+    width: 33%;
+    margin: 5px;
+}
+.columnB {
+    width: 33%;
+    margin: 5px;
+}
+.columnC {
+    float: right;
+    width: 33%;
+    margin: 5px;
+}
+#stars {
+    color: gold;
+    padding-right: 45%;
+    padding-left: 45%;
+    width: 10%;
 }
