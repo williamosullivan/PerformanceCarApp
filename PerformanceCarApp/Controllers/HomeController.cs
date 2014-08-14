@@ -32,5 +32,10 @@ namespace PerformanceCarApp.Controllers
         {
             return View();
         }
+
+        public ActionResult Intro()
+        {
+            return View();
+        }
     }
 }
