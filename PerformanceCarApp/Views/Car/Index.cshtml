@@ -4,23 +4,34 @@
     ViewBag.Title = "Car Index";
 }
 <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+    $(function () {
+        $(document).ready(function () {
+            $("#slider").scrollLeft("slow");
+        })
+    });
 
-    <h2>Car Index</h2>
-    <br ><br />
-    @Html.ActionLink("CarIndex", "Index", new { sortOrder = ViewBag.NameSortParm })
-    <br ><br />
-    <center>
-        <h2>Build Your Ride!</h2>
-        <br><br />
-        @using (Html.BeginForm())
+</script>
+
+
+
+<h2>Car Index</h2>
+<br><br />
+@Html.ActionLink("CarIndex", "Index", new { sortOrder = ViewBag.NameSortParm })
+<br><br />
+<center>
+    <h2>Build Your Ride!</h2>
+    <br><br />
+    @using (Html.BeginForm())
     {
         <p>
-        Find by Make, Model, Generation, Drivetrain, or Engine Size:
-        @Html.TextBox("SearchString")
-        <input type="submit" value="Search" />
-    </p>
+            Find by Make, Model, Generation, Drivetrain, or Engine Size:
+            @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
     }
-<br><br />
+    <br><br />
 </center>
 
 <table class="table">
@@ -66,3 +77,17 @@
         </tr>
         }
     </table>
+
+  
+
+   
+<body>
+    <ul class="slider">
+        <li><img src="~/Images/chevy_camero.png" width="200" height="200" /></li>
+        <li><img src="~/Images/chevy_corvette.png" width="200" height="200" /></li>
+        <li><img src="~/Images/ford_mustang.png" width="200" height="200" /></li>
+        <li><img src="~/Images/challenger.jpg" width="200" height="200" /></li>
+    </ul>
+ 
+</body>
+    

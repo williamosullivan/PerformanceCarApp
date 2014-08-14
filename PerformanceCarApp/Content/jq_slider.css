@@ -1,0 +1,17 @@
+﻿
+.slider {
+  margin: 10px 0;
+  width: 250px; 
+  height: 250px; 
+  position: relative;
+  overflow: hidden;
+}
+
+.slider li {
+  display: none;
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+}
+
+
