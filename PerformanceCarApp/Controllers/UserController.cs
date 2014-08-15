@@ -165,12 +165,39 @@ namespace PerformanceCarApp.Controllers
             return View();
         }
 
-        public ActionResult Gallery()
+        public ActionResult Gallery(string sortOrder, string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.MakeSortParm = sortOrder == "Make" ? "make_desc" : "Make";
             var userQuery = from u in db.Users
                             select u;
             var userList = new List<User>();
             userList.AddRange(userQuery);
+            var cars = from c in db.Cars
+                       select c;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                cars = cars.Where(c => c.Model.ToUpper().Contains(searchString.ToUpper())
+                || c.Make.ToUpper().Contains(searchString.ToUpper()) || c.Generation.ToUpper().
+                Contains(searchString.ToUpper()) || c.Drivetrain.ToUpper().Contains(searchString.ToUpper()) ||
+                c.EngineSize.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    cars = cars.OrderByDescending(c => c.Model);
+                    break;
+                case "Make":
+                    cars = cars.OrderBy(c => c.Make);
+                    break;
+                case "make_desc":
+                    cars = cars.OrderByDescending(c => c.Make);
+                    break;
+                default:
+                    cars = cars.OrderBy(c => c.Model);
+                    break;
+            }
             return View(userList);
         }
 

@@ -82,3 +82,7 @@ img.large {
     padding-left: 45%;
     width: 10%;
 }
+.gallery {
+    font-weight: bold;
+    color: #000000;
+}

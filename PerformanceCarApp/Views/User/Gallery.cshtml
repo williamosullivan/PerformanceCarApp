@@ -4,50 +4,69 @@
     ViewBag.Title = "Gallery";
 }
 
-<h2>Gallery</h2>
+<h2></h2>
+<br /><br />
+<p><center><img src="~/Content/srtlogo.png" /></center></p>
+<br /><br />
+@using (Html.BeginForm())
+{
+    <p>
+        <center>
+            <font color="#000000">
+                <strong>
+                    Find by User, Make, Model, or Keyword:
+                    @Html.TextBox("SearchString")
+                    <input type="submit" value="Search" />
+                </strong>
+            </font>
+        </center>
+    </p>
+}
+<div id="gallery">
+    <font color="#000000">
+        <table class="table" style="font-weight:bold">
+            <tr>
+                <th>
+                    User
+                </th>
+                <th>
+                    Make
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Horsepower
+                </th>
+                <th>
+                    Quarter Mile Time
+                </th>
+                <th></th>
+            </tr>
 
-<table class="table">
-    <tr>
-        <th>
-            User
-        </th>
-        <th>
-            Make
-        </th>
-        <th>
-            Model
-        </th>
-        <th>
-            Horsepower
-        </th>
-        <th>
-            Quarter Mile Time
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Car.Make)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Car.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Horsepower)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuarterMile)
-            </td>
-            <td>
-                @Html.ActionLink("Check it out!", "Details", new { id = item.UserID })
-            </td>
-        </tr>
-    }
-
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Car.Make)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Car.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Horsepower)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuarterMile)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Check it out!", "Details", new { id = item.UserID })
+                    </td>
+                </tr>
+            }
+        </table>
+    </font>
+</div>
