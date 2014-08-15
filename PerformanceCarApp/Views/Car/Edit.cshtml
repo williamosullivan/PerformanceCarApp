@@ -17,73 +17,76 @@
 <link rel="stylesheet" type="text/css" href="~/Content/style.css">
 <link rel="stylesheet" type="text/css" href="~/Content/Profile.css">
 <h2>Build Your Ride!</h2>
-@using (Html.BeginForm("Edit", "Car"))
-{
-    @Html.AntiForgeryToken()
-    <div>
-        <br /><br />
-        <fieldset>
-            <form id="HP">
-                <center>
-                    <div id="columnA">
-                        <strong>
-                            Intake:
-                        </strong>
-                        @Html.DropDownList("IntakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListIntake)
-                        <img src="~/Content/intake.jpg" width="160" height="120" />
-                        <strong>
-                            Suspension:
-                        </strong>
-                        @Html.DropDownList("SuspensionList", (IEnumerable<SelectListItem>)ViewBag.SelectListSuspensions)
-                        <img src="~/Content/suspension.jpg" width="160" height="120" />
+<font style="color: #000000">
+    @using (Html.BeginForm("Edit", "Car"))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <br /><br />
+            <fieldset>
+                <form id="HP">
+                    <center>
+                        <div id="columnA">
+                            <strong>
+                                Intake:
+                            </strong>
+                            @Html.DropDownList("IntakeList", (IEnumerable<SelectListItem>)ViewBag.SelectListIntake)
+                            <img src="~/Content/intake.jpg" width="160" height="120" />
+                            <strong>
+                                Suspension:
+                            </strong>
+                            @Html.DropDownList("SuspensionList", (IEnumerable<SelectListItem>)ViewBag.SelectListSuspensions)
+                            <img src="~/Content/suspension.jpg" width="160" height="120" />
+                            <br />
+                        </div>
+                    </center>
+                    <center>
                         <br />
-                    </div>
-                </center>
-                <center>
-                    <br />
-                    <div id="columnB">
-                        <strong>
-                            Engine Part:
-                        </strong>
-                        @Html.DropDownList("EnginePartList", (IEnumerable<SelectListItem>)ViewBag.SelectListEngineParts)
-                        <img src="~/Content/enginepart.jpg" width="160" height="120" />
-                    </div>
-                    <br />
-                </center>
-                <center>
-                    <div id="columnC">
-                        <strong>
-                            Exhaust:
-                        </strong>
-                        @Html.DropDownList("ExhaustList", (IEnumerable<SelectListItem>)ViewBag.SelectListExhaust)
-                        <img src="~/Content/exhaust.gif" width="160" height="120" />
-                        <strong>
-                            Brakes:
-                        </strong>
-                        @Html.DropDownList("BrakesList", (IEnumerable<SelectListItem>)ViewBag.SelectListBrakes)
-                        <img src="~/Content/brakes.jpg" width="160" height="120" />
+                        <div id="columnB">
+                            <strong>
+                                Engine Part:
+                            </strong>
+                            @Html.DropDownList("EnginePartList", (IEnumerable<SelectListItem>)ViewBag.SelectListEngineParts)
+                            <img src="~/Content/enginepart.jpg" width="160" height="120" />
+                        </div>
                         <br />
-                    </div>
-                </center>
-                <center>
-                    <div id="subbutton">
-                        <input type="submit" value="Calculate" onclick="HP();" />
-                    </div>
-                </center>
-            </form>
-        </fieldset>
-    </div>
-
-    <center>
-        Base Horsepower: @Html.TextBox("BaseHorsepower", (int)ViewBag.BHP)
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        Projected Horsepower: @Html.TextBox("ProjectedHorsepower", (int)ViewBag.HP)
+                    </center>
+                    <center>
+                        <div id="columnC">
+                            <strong>
+                                Exhaust:
+                            </strong>
+                            @Html.DropDownList("ExhaustList", (IEnumerable<SelectListItem>)ViewBag.SelectListExhaust)
+                            <img src="~/Content/exhaust.gif" width="160" height="120" />
+                            <strong>
+                                Brakes:
+                            </strong>
+                            @Html.DropDownList("BrakesList", (IEnumerable<SelectListItem>)ViewBag.SelectListBrakes)
+                            <img src="~/Content/brakes.jpg" width="160" height="120" />
+                            <br />
+                        </div>
+                    </center>
+                    <center>
+                        <br />
+                        <div id="subbutton">
+                            <input type="submit" value="Calculate" onclick="HP();" />
+                        </div>
+                    </center>
+                </form>
+            </fieldset>
+        </div>
         <br /><br />
-        Suspension Drop: @Html.TextBox("Drop", (int)ViewBag.SuspDrop)
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        Weight Saved: @Html.TextBox("Weight", (int)ViewBag.Weight)
-    </center>
-}
+        <center>
+            Base Horsepower: @Html.TextBox("BaseHorsepower", (int)ViewBag.BHP)
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            Projected Horsepower: @Html.TextBox("ProjectedHorsepower", (int)ViewBag.HP)
+            <br /><br />
+            Suspension Drop: @Html.TextBox("Drop", (int)ViewBag.SuspDrop)
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            Weight Saved: @Html.TextBox("Weight", (int)ViewBag.Weight)
+        </center>
+    }
+</font>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
