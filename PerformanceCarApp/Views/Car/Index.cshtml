@@ -18,19 +18,22 @@
 
 <h2>Car Index</h2>
 <br><br />
-@Html.ActionLink("CarIndex", "Index", new { sortOrder = ViewBag.NameSortParm })
 <br><br />
 <center>
     <h2>Build Your Ride!</h2>
     <br><br />
-    @using (Html.BeginForm())
-    {
-        <p>
-            Find by Make, Model, Generation, Drivetrain, or Engine Size:
-            @Html.TextBox("SearchString")
-            <input type="submit" value="Search" />
-        </p>
-    }
+    <strong>
+        <font color="#000000" style="font-weight:bold">
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Find by Make, Model, Generation, Drivetrain, or Engine Size:
+                    @Html.TextBox("SearchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </font>
+    </strong>
     <br><br />
 </center>
 <font color="#000000">
@@ -79,16 +82,3 @@
         </table>
         </
     </font>
-
-
-
-    <body>
-        <ul class="slider">
-            <li><img src="~/Images/chevy_camero.png" width="200" height="200" /></li>
-            <li><img src="~/Images/chevy_corvette.png" width="200" height="200" /></li>
-            <li><img src="~/Images/ford_mustang.png" width="200" height="200" /></li>
-            <li><img src="~/Images/challenger.jpg" width="200" height="200" /></li>
-        </ul>
-
-    </body>
-

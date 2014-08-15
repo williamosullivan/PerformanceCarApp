@@ -121,7 +121,9 @@ namespace PerformanceCarApp.Migrations
 
             var members = new List<User>
             {
-                new User{UserID = 1, UserName = "Bill O'Sullivan", UserEmail = "williamosullivan@gmail.com", UserBirthday = DateTime.Parse("7/23/1981"), Gender = "M", CarID = 1, Horsepower = 300, QuarterMile = 13.2, ImageURL = " "}
+                new User{UserID = 1, UserName = "Bill O'Sullivan", UserEmail = "williamosullivan@gmail.com", UserBirthday = DateTime.Parse("7/23/1981"), Gender = "M", CarID = 1, Horsepower = 300, QuarterMile = 13.2, ImageURL = "/Images/golf.jpg"},
+                new User{UserID = 2, UserName = "David Roe", UserEmail = "roedavidc@yahoo.com", UserBirthday = DateTime.Parse("5/1/1975"), Gender = "M", CarID = 6, Horsepower = 299, QuarterMile = 13.5, ImageURL = "/Images/RoeMustang.jpg" },
+                new User{UserID = 3, UserName = "Lynette Tigue", UserEmail = "moneynloand@yahoo.com", UserBirthday = DateTime.Parse("6/22/1990"), Gender = "F", CarID = 2, Horsepower = 298, QuarterMile = 13.4, ImageURL = "/Images/phoon.jpg" }
             };
             members.ForEach(s => context.Users.AddOrUpdate(p => p.UserName, s));
             context.SaveChanges();
