@@ -33,61 +33,62 @@
     }
     <br><br />
 </center>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Make)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Generation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Drivetrain)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EngineSize)
-        </th>
-    </tr>
-    <tr>
-        @foreach (var item in Model)
-        {
+<font color="#000000">
+    <table class="table" style="font-weight:bold">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Make)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Generation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Drivetrain)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EngineSize)
-            </td>
-            <td>
-                @Html.ActionLink("Build It!", "Edit", new { id = item.CarID }) |
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Generation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Drivetrain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EngineSize)
+            </th>
         </tr>
-        }
-    </table>
+        <tr>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Generation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Drivetrain)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EngineSize)
+                </td>
+                <td>
+                    @Html.ActionLink("Build It!", "Edit", new { id = item.CarID }) |
+                </td>
+            </tr>
+            }
+        </table>
+        </
+    </font>
 
-  
 
-   
-<body>
-    <ul class="slider">
-        <li><img src="~/Images/chevy_camero.png" width="200" height="200" /></li>
-        <li><img src="~/Images/chevy_corvette.png" width="200" height="200" /></li>
-        <li><img src="~/Images/ford_mustang.png" width="200" height="200" /></li>
-        <li><img src="~/Images/challenger.jpg" width="200" height="200" /></li>
-    </ul>
- 
-</body>
-    
+
+    <body>
+        <ul class="slider">
+            <li><img src="~/Images/chevy_camero.png" width="200" height="200" /></li>
+            <li><img src="~/Images/chevy_corvette.png" width="200" height="200" /></li>
+            <li><img src="~/Images/ford_mustang.png" width="200" height="200" /></li>
+            <li><img src="~/Images/challenger.jpg" width="200" height="200" /></li>
+        </ul>
+
+    </body>
+
