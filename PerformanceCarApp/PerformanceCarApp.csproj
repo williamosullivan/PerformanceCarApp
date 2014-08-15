@@ -340,6 +340,7 @@
     <Content Include="Views\User\Upload.cshtml" />
     <Content Include="Views\User\Gallery.cshtml" />
     <Content Include="Views\Home\Intro.cshtml" />
+    <Content Include="Views\Home\Safe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

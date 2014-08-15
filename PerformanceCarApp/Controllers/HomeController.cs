@@ -37,5 +37,10 @@ namespace PerformanceCarApp.Controllers
         {
             return View();
         }
+
+        public ActionResult Safe()
+        {
+            return View();
+        }
     }
 }
